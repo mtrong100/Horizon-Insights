@@ -10,15 +10,16 @@ import { Fragment } from "react";
 import { signOut } from "firebase/auth";
 import { auth } from "../utils/firebase";
 import { toast } from "sonner";
+import { Link } from "react-router-dom";
 
 /* ====================================================== */
 
 const Dropdown = ({ currentUser }) => {
   const dropdownLinks = [
     {
-      label: "Manage",
+      label: "Dashboard",
       icon: <MdOutlineDashboardCustomize />,
-      onClick: () => toast.info("Nothing happened!"),
+      href: "/dashboard",
     },
     {
       label: "Settings",
@@ -60,15 +61,16 @@ const Dropdown = ({ currentUser }) => {
           {dropdownLinks.map((link) => (
             <Menu.Item key={link.label} as={Fragment}>
               {({ active }) => (
-                <li
+                <Link
+                  to={link.href}
                   onClick={link.onClick}
                   className={`${
                     active ? "bg-white bg-opacity-10" : ""
-                  } flex list-none items-center h-[40px] gap-2  hover:bg-gray-100 px-5 rounded-md cursor-pointer`}
+                  } flex list-none items-center h-[45px] gap-2  hover:bg-gray-100 px-5 rounded-md cursor-pointer`}
                 >
                   <span className="text-xl">{link.icon}</span>
-                  <span className=" xl:text-lg">{link.label}</span>
-                </li>
+                  <span className=" ">{link.label}</span>
+                </Link>
               )}
             </Menu.Item>
           ))}

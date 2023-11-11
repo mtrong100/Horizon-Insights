@@ -1,5 +1,5 @@
 import React from "react";
-import { sidebarLinks } from "../utils/constant";
+import { menuLinks } from "../utils/constant";
 import { Link, useLocation } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
 import Dropdown from "./Dropdown";
@@ -14,7 +14,7 @@ const Header = () => {
         <h1 className="text-2xl font-bold text-blue-500">Horizon Insights</h1>
 
         <ul className="flex items-center gap-5">
-          {sidebarLinks.map((item) => {
+          {menuLinks.map((item) => {
             const isActive = location.pathname === item.link;
 
             return (

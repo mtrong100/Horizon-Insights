@@ -7,7 +7,7 @@ import { useAuth } from "../context/AuthContext";
 
 const Home = () => {
   const { currentUser } = useAuth();
-  console.log(currentUser);
+  // console.log(currentUser);
 
   return (
     <main className="page-container py-5">
@@ -21,7 +21,7 @@ const Home = () => {
         <ul className="flex items-center gap-5 mt-3">
           {blogCategories.map((item) => (
             <li
-              className="font-semibold bg-indigo-500 hover:bg-indigo-600 cursor-pointer rounded-full text-whiteSoft px-5 py-1"
+              className="font-semibold border-indigo-500 border hover:bg-indigo-500 transition-all cursor-pointer rounded-full text-indigo-500 px-5 py-1 hover:text-white"
               key={item}
             >
               {item}

@@ -5,6 +5,8 @@ import Signup from "./pages/Signup";
 import MainLayout from "./components/MainLayout";
 import Blog from "./pages/Blog";
 import Contact from "./pages/Contact";
+import Dashboard from "./pages/Dashboard";
+import DashboardLayout from "./components/DashboardLayout";
 
 function App() {
   return (
@@ -16,6 +18,10 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/blog" element={<Blog />} />
         <Route path="/contact" element={<Contact />} />
+      </Route>
+
+      <Route element={<DashboardLayout />}>
+        <Route path="/dashboard" element={<Dashboard />} />
       </Route>
     </Routes>
   );

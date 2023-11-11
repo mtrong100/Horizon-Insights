@@ -11,7 +11,7 @@ const AuthProvider = ({ children }) => {
   const [currentUser, setCurrentUser] = useState(null);
 
   useEffect(() => {
-    onAuthStateChanged(auth, async (user) => {
+    const unsubscribe = onAuthStateChanged(auth, async (user) => {
       if (user) {
         const userDocRef = query(
           collection(db, "User"),
@@ -29,6 +29,8 @@ const AuthProvider = ({ children }) => {
         navigate("sign-in");
       }
     });
+
+    return () => unsubscribe();
   }, [navigate]);
 
   const value = { currentUser, setCurrentUser };
