@@ -1,0 +1,44 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    @apply scroll-smooth;
+  }
+  body {
+    @apply bg-blue-50;
+  }
+}
+
+@layer components {
+  .page-container {
+    @apply w-full max-w-[1170px] mx-auto px-5;
+  }
+  .img-cover {
+    @apply w-full h-full object-cover;
+  }
+  .loading-circle {
+    @apply border-4 border-t-4 border-t-transparent w-[35px] h-[35px] rounded-full bg-blue-500 animate-spin;
+  }
+}
+
+.banner-background {
+  background: #36d1dc; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to right,
+    #5b86e5,
+    #36d1dc
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to right,
+    #5b86e5,
+    #36d1dc
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+.text-linear {
+  @apply bg-secondaryGradient;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}

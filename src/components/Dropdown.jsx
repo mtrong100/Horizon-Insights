@@ -1,0 +1,81 @@
+import React from "react";
+import { Menu, Transition } from "@headlessui/react";
+import { AiOutlineSetting } from "react-icons/ai";
+import { BiLogOut } from "react-icons/bi";
+import {
+  MdOutlineContactSupport,
+  MdOutlineDashboardCustomize,
+} from "react-icons/md";
+import { Fragment } from "react";
+import { signOut } from "firebase/auth";
+import { auth } from "../utils/firebase";
+import { toast } from "sonner";
+
+/* ====================================================== */
+
+const Dropdown = ({ currentUser }) => {
+  const dropdownLinks = [
+    {
+      label: "Manage",
+      icon: <MdOutlineDashboardCustomize />,
+      onClick: () => toast.info("Nothing happened!"),
+    },
+    {
+      label: "Settings",
+      icon: <AiOutlineSetting />,
+      onClick: () => toast.info("Nothing happened!"),
+    },
+    {
+      label: "Support",
+      icon: <MdOutlineContactSupport />,
+      onClick: () => toast.info("Nothing happened!"),
+    },
+    { label: "Sign out", icon: <BiLogOut />, onClick: () => signOut(auth) },
+  ];
+
+  return (
+    <Menu as="div" className="relative">
+      <Menu.Button>
+        <div className="flex items-center gap-3 cursor-pointer">
+          <h3 className="font-bold text-slate-700 text-lg">
+            {currentUser?.username}
+          </h3>
+          <img
+            src={currentUser?.avatar}
+            alt="user-avatar"
+            className="object-cover w-[35px] h-[35px] rounded-full"
+          />
+        </div>
+      </Menu.Button>
+      <Transition
+        as={Fragment}
+        enter="transition ease-out duration-100"
+        enterFrom="transform opacity-0 scale-95"
+        enterTo="transform opacity-100 scale-100"
+        leave="transition ease-in duration-75"
+        leaveFrom="transform opacity-100 scale-100"
+        leaveTo="transform opacity-0 scale-95"
+      >
+        <Menu.Items className="absolute min-w-[170px] right-0 top-[45px] xl:w-full origin-bottom  bg-whiteSoft rounded-md shadow-lg  ">
+          {dropdownLinks.map((link) => (
+            <Menu.Item key={link.label} as={Fragment}>
+              {({ active }) => (
+                <li
+                  onClick={link.onClick}
+                  className={`${
+                    active ? "bg-white bg-opacity-10" : ""
+                  } flex list-none items-center h-[40px] gap-2  hover:bg-gray-100 px-5 rounded-md cursor-pointer`}
+                >
+                  <span className="text-xl">{link.icon}</span>
+                  <span className=" xl:text-lg">{link.label}</span>
+                </li>
+              )}
+            </Menu.Item>
+          ))}
+        </Menu.Items>
+      </Transition>
+    </Menu>
+  );
+};
+
+export default Dropdown;
