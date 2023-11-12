@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import Banner from "../components/Banner";
 import { blogCategories } from "../utils/constant";
-import FeatureBlog from "../modules/FeatureBlog";
+import FeatureBlog, { FeatureBlogSkeleton } from "../modules/FeatureBlog";
 import Blog, { BlogSkeleton } from "../modules/Blog";
 import { useAuth } from "../context/AuthContext";
 import useFetchCollection from "../hooks/useFetchCollection";
@@ -43,7 +43,8 @@ const Home = () => {
 
       {/* Blogs */}
       <section className="my-5">
-        <FeatureBlog data={firstBlog} />
+        {loading ? <FeatureBlogSkeleton /> : <FeatureBlog data={firstBlog} />}
+
         <ul className="mt-8 grid grid-cols-3 gap-x-2 gap-y-5 ">
           {isLoading &&
             Array(6)

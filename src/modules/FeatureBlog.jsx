@@ -3,6 +3,7 @@ import BlogType from "../components/BlogType";
 import { Link } from "react-router-dom";
 import { formateDate } from "../utils/helper";
 import useQuerySnapshot from "../hooks/useQuerySnapshot";
+import Skeleton from "../components/Skeleton";
 
 const FeatureBlog = ({ data }) => {
   const { data: user } = useQuerySnapshot("User", "id", data?.userId);
@@ -52,3 +53,35 @@ const FeatureBlog = ({ data }) => {
 };
 
 export default FeatureBlog;
+
+export const FeatureBlogSkeleton = () => {
+  return (
+    <article className="flex items-start justify-between gap-2 h-[400px] ">
+      <Skeleton className="w-full flex-1 h-[400px] rounded-xl" />
+
+      <div className="flex flex-col flex-1 bg-gray-100 py-3 px-5 gap-2 h-[400px] rounded-md">
+        <div className="flex flex-col gap-2">
+          <Skeleton className="w-full h-[50px] rounded-md" />
+          <Skeleton className="w-[400px] h-[50px] rounded-md" />
+        </div>
+
+        <div className="flex flex-col gap-2 mt-4">
+          <Skeleton className="w-full h-[25px] rounded-md" />
+          <Skeleton className="w-full h-[25px] rounded-md" />
+          <Skeleton className="w-full h-[25px] rounded-md" />
+          <Skeleton className="w-[400px] h-[25px] rounded-md" />
+        </div>
+
+        {/* Author */}
+        <div className="flex items-center gap-3 mt-2">
+          <Skeleton className="w-[50px] h-[50px] rounded-full flex-shrink-0" />
+
+          <div className="flex flex-col gap-2 w-full">
+            <Skeleton className="h-[20px] rounded-md w-[150px]" />
+            <Skeleton className="h-[15px] rounded-md w-[60px]" />
+          </div>
+        </div>
+      </div>
+    </article>
+  );
+};
