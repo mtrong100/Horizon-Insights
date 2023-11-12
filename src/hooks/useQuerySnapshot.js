@@ -1,13 +1,15 @@
 import { useState, useEffect } from "react";
 import { collection, getDocs, query, where } from "firebase/firestore";
-import { db } from "../utils/firebase-app";
+import { db } from "../utils/firebase";
 
 const useQuerySnapshot = (collectionName, fieldName, fieldValue) => {
   const [data, setData] = useState(null);
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
     async function fetchData() {
-      if (!fieldValue || !collectionName || !fieldName) return;
+      if (!collectionName || !fieldName || !fieldValue) return;
+      setIsLoading(true);
 
       try {
         const queryRef = query(
@@ -20,6 +22,7 @@ const useQuerySnapshot = (collectionName, fieldName, fieldValue) => {
           const data = doc.data();
           if (data) {
             setData({ ...data });
+            setIsLoading(false);
           }
         });
       } catch (error) {
@@ -29,7 +32,7 @@ const useQuerySnapshot = (collectionName, fieldName, fieldValue) => {
     fetchData();
   }, [fieldValue, collectionName, fieldName]);
 
-  return { data };
+  return { data, isLoading };
 };
 
 export default useQuerySnapshot;

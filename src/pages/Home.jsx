@@ -2,11 +2,13 @@ import React from "react";
 import Banner from "../components/Banner";
 import { blogCategories } from "../utils/constant";
 import FeatureBlog from "../modules/FeatureBlog";
-import Blog from "../modules/Blog";
+import Blog, { BlogSkeleton } from "../modules/Blog";
 import { useAuth } from "../context/AuthContext";
+import useFetchCollection from "../hooks/useFetchCollection";
 
 const Home = () => {
   const { currentUser } = useAuth();
+  const { data: blogs, isLoading } = useFetchCollection("Blog");
   // console.log(currentUser);
 
   return (
@@ -34,11 +36,15 @@ const Home = () => {
       <section className="my-5">
         <FeatureBlog />
         <ul className="mt-8 grid grid-cols-3 gap-x-2 gap-y-5 ">
-          {Array(6)
-            .fill(0)
-            .map((item, index) => (
-              <Blog key={index} />
-            ))}
+          {isLoading &&
+            Array(6)
+              .fill(0)
+              .map((item, index) => <BlogSkeleton key={index} />)}
+
+          {!isLoading &&
+            blogs &&
+            blogs.length > 0 &&
+            blogs.map((blog) => <Blog key={blog.id} data={blog} />)}
         </ul>
       </section>
     </main>

@@ -10,7 +10,7 @@ const Sidebar = () => {
       <h1 className="font-bold text-2xl text-center text-linear">
         Horizon Insights
       </h1>
-      <ul className="flex flex-col mt-5">
+      <ul className="flex flex-col mt-5 gap-1">
         {sidebarLinks.map((item) => {
           const isActive = location.pathname === item.link;
 
@@ -20,9 +20,9 @@ const Sidebar = () => {
               key={item.name}
               className={`${
                 isActive
-                  ? "opacity-100 font-semibold"
+                  ? "opacity-100 font-semibold bg-gray-200"
                   : "font-medium opacity-90 hover:bg-gray-200"
-              } h-[50px]  text-lg text-slate-800  px-5 rounded-md cursor-pointer flex items-center gap-3`}
+              } h-[50px]  text-lg text-slate-800  px-5 rounded-md cursor-pointer flex items-center gap-3 `}
             >
               <span className="text-xl">{item.icon}</span>
               <span>{item.name}</span>

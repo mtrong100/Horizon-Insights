@@ -1,0 +1,151 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    @apply scroll-smooth;
+  }
+  body {
+    @apply bg-blue-50;
+  }
+}
+
+@layer components {
+  .page-container {
+    @apply w-full max-w-[1170px] mx-auto px-5;
+  }
+  .img-cover {
+    @apply w-full h-full object-cover;
+  }
+  .loading-circle {
+    @apply border-4 border-t-4 border-t-transparent w-[35px] h-[35px] rounded-full border-blue-500 animate-spin;
+  }
+}
+
+/* Other classes */
+.custom-scrollbar::-webkit-scrollbar {
+  @apply w-[5px];
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  @apply bg-gray-300;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  @apply bg-slate-500;
+}
+
+.hidden-input {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+  white-space: nowrap;
+}
+
+.banner-background {
+  background: #36d1dc;
+  background: -webkit-linear-gradient(to right, #5b86e5, #36d1dc);
+  background: linear-gradient(to right, #5b86e5, #36d1dc);
+}
+
+.text-linear {
+  @apply bg-secondaryGradient;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.blog-content {
+  @apply text-gray-700;
+  h1 {
+    @apply text-linear;
+  }
+  h2,
+  h3,
+  h4 {
+    @apply text-gray-900;
+  }
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-weight: bold;
+    word-break: break-word;
+    line-height: 1.25;
+    margin-bottom: 15px;
+  }
+  h1 {
+    font-size: 33px;
+  }
+  h2 {
+    font-size: 28px;
+  }
+  h3 {
+    font-size: 25px;
+  }
+  h4 {
+    font-size: 20px;
+  }
+  p {
+    margin-bottom: 13px;
+    line-height: 1.5;
+  }
+  ul {
+    list-style: disc;
+  }
+  ol {
+    list-style: decimal;
+  }
+  ul,
+  ol {
+    margin-bottom: 20px;
+    padding-left: 40px;
+    margin-left: 0;
+  }
+  li {
+    margin-bottom: 10px;
+  }
+  img {
+    border-radius: 10px;
+  }
+  figure {
+    margin-bottom: 5px;
+  }
+  figure img {
+    border-radius: 20px;
+  }
+  figcaption {
+    text-align: center;
+    font-style: italic;
+    font-size: 14px;
+    color: #6b6b6b;
+  }
+
+  @media screen and (max-width: 1023.98px) {
+    font-size: 14px;
+    h2 {
+      font-size: 26px;
+    }
+    h3 {
+      font-size: 24px;
+    }
+    h4 {
+      font-size: 20px;
+    }
+  }
+  @media screen and (max-width: 480px) {
+    h1 {
+      font-size: 25px;
+    }
+    h2,
+    h3,
+    h4 {
+      font-size: 18px;
+    }
+  }
+}

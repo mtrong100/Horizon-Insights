@@ -1,4 +1,3 @@
-import { toast } from "react-toastify";
 import { useState } from "react";
 import {
   getDownloadURL,
@@ -6,7 +5,6 @@ import {
   ref,
   uploadBytesResumable,
 } from "firebase/storage";
-import { toastConfig } from "../constants/constants";
 /* <<=============================================================>> */
 
 export default function useUploadPhoto() {
@@ -15,7 +13,7 @@ export default function useUploadPhoto() {
 
   const handleUploadImage = (file) => {
     const storage = getStorage();
-    const storageRef = ref(storage, "pictures/" + file.name);
+    const storageRef = ref(storage, "pictures/" + file.name + Date.now());
     const uploadTask = uploadBytesResumable(storageRef, file);
 
     uploadTask.on(
@@ -26,7 +24,6 @@ export default function useUploadPhoto() {
         setProgress(progressPercent);
         switch (snapshot.state) {
           case "paused":
-            toast.warning("Lỗi tải hình ảnh", toastConfig);
             break;
           case "running":
             break;

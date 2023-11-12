@@ -14,7 +14,7 @@ import { Link } from "react-router-dom";
 
 /* ====================================================== */
 
-const Dropdown = ({ currentUser }) => {
+const MenuDropdown = ({ currentUser }) => {
   const dropdownLinks = [
     {
       label: "Dashboard",
@@ -80,4 +80,4 @@ const Dropdown = ({ currentUser }) => {
   );
 };
 
-export default Dropdown;
+export default MenuDropdown;

@@ -43,6 +43,7 @@ module.exports = {
       },
       backgroundImage: {
         /* GRADIENT-COLOR */
+        cyanLinear: "linear-gradient(to bottom , #36d1dc, #1d9bf0)",
         primaryGradient: "linear-gradient(to right , #5b86e5, #36d1dc)",
         secondaryGradient: "linear-gradient(to right , #1d9bf0, #7856ff)",
       },

@@ -1,5 +1,6 @@
 import { AiOutlinePlus, AiOutlineUser, AiOutlineHome } from "react-icons/ai";
 import { BiSolidPencil } from "react-icons/bi";
+import { MdOutlineDashboardCustomize } from "react-icons/md";
 
 export const menuLinks = [
   {
@@ -65,9 +66,9 @@ export const sidebarLinks = [
     link: "/",
   },
   {
-    name: "Profile",
-    icon: <AiOutlineUser />,
-    link: "/profile",
+    name: "Dashboard",
+    icon: <MdOutlineDashboardCustomize />,
+    link: "/dashboard",
   },
   {
     name: "Create",
@@ -80,3 +81,5 @@ export const sidebarLinks = [
     link: "/manage-blog",
   },
 ];
+
+export const typeBlogs = ["Normal", "Feature", "Hot"];
