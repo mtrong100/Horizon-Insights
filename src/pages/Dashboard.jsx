@@ -1,10 +1,16 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useAuth } from "../context/AuthContext";
 import { formateDate } from "../utils/helper";
-import Blog from "../modules/Blog";
+import Blog, { BlogSkeleton } from "../modules/Blog";
+import useFetchCollection from "../hooks/useFetchCollection";
 
 const Dashboard = () => {
   const { currentUser } = useAuth();
+  const { data: blogs, isLoading } = useFetchCollection("Blog");
+
+  useEffect(() => {
+    document.body.scrollIntoView({ behavior: "smooth", block: "start" });
+  }, []);
 
   return (
     <section className="flex flex-col ">
@@ -28,9 +34,9 @@ const Dashboard = () => {
           </div>
           <div className="mt-3 font-semibold opacity-80">
             <span>Contact: {currentUser?.email}</span>
-            <span className="inline-block ">
+            <p className="text-blue-700">
               Joined {formateDate(currentUser?.createdAt)}
-            </span>
+            </p>
           </div>
         </div>
         <div className="h-[230px] bg-cyanLinear rounded-xl w-full shadow-md"></div>
@@ -49,11 +55,15 @@ const Dashboard = () => {
           </span>
         </div>
         <ul className="grid grid-cols-3 gap-x-2 gap-y-5 ">
-          {Array(6)
-            .fill(0)
-            .map((item, index) => (
-              <Blog key={index} />
-            ))}
+          {isLoading &&
+            Array(6)
+              .fill(0)
+              .map((item, index) => <BlogSkeleton key={index} />)}
+
+          {!isLoading &&
+            blogs &&
+            blogs.length > 0 &&
+            blogs.map((blog) => <Blog key={blog.id} data={blog} />)}
         </ul>
       </section>
     </section>

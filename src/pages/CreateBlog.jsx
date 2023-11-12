@@ -37,7 +37,7 @@ const schema = yup.object().shape({
   description: yup
     .string()
     .min(10, "Description is too short")
-    .max(300, "Description is only at least 300 characters")
+    .max(350, "Description is only at least 300 characters")
     .required("Description is required"),
 });
 
@@ -99,13 +99,13 @@ const CreateBlog = () => {
         id: docRef.id,
       });
 
-      reset({
-        title: "",
-        description: "",
-        category: "",
-      });
+      // reset({
+      //   title: "",
+      //   description: "",
+      //   category: "",
+      // });
       setThumbnail("");
-      setContent("");
+      // setContent("");
       setType("Normal");
 
       toast.success("Create blog successfully!");
@@ -132,7 +132,11 @@ const CreateBlog = () => {
             {progress === 0 && !thumbnail && (
               <div className="border border-gray-500 flex flex-col gap-5 hover:bg-slate-100 cursor-pointer items-center justify-center h-[250px] w-full rounded-xl">
                 <MdOutlineUploadFile size={50} className="opacity-50" />
-                <input type="file" onChange={handleSelectImage} />
+                <input
+                  type="file"
+                  onChange={handleSelectImage}
+                  className="cursor-pointer"
+                />
               </div>
             )}
 

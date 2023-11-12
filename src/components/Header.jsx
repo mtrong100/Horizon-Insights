@@ -9,7 +9,7 @@ const Header = () => {
   const location = useLocation();
 
   return (
-    <header className="p-3 ">
+    <header className="p-4">
       <div className="page-container flex items-center justify-between">
         <Link to={"/"} className="text-2xl font-bold text-blue-500">
           Horizon Insights
@@ -25,7 +25,7 @@ const Header = () => {
                   isActive
                     ? "text-blue-500 font-semibold"
                     : "hover:text-blue-500 text-slate-700 font-medium"
-                } text-lg`}
+                } text-xl`}
                 key={item.name}
                 to={item.link}
               >

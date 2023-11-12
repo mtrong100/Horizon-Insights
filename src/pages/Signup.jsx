@@ -82,7 +82,7 @@ const Signup = () => {
     <section className="flex items-center justify-center h-screen">
       <form onSubmit={handleSubmit(onSubmit)} className="w-full max-w-md">
         <h1 className="text-4xl text-center text-blue-600 font-bold ">
-          Money Blogging
+          Horizon Insights
         </h1>
 
         <div className="flex flex-col gap-5 mt-8">

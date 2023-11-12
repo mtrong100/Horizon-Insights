@@ -7,7 +7,7 @@ import {
   query,
   where,
 } from "firebase/firestore";
-import { db } from "../utils/firebase-app";
+import { db } from "../utils/firebase";
 /* ====================================================== */
 
 export default function useFetchBlogType(collectionName, blogType) {

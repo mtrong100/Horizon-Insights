@@ -44,7 +44,7 @@ const MenuDropdown = ({ currentUser }) => {
           <img
             src={currentUser?.avatar}
             alt="user-avatar"
-            className="object-cover w-[35px] h-[35px] rounded-full"
+            className="object-cover w-[40px] h-[40px] rounded-full"
           />
         </div>
       </Menu.Button>

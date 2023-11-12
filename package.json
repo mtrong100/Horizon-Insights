@@ -13,6 +13,7 @@
     "@headlessui/react": "^1.7.17",
     "@hookform/resolvers": "^3.3.2",
     "@reduxjs/toolkit": "^1.9.7",
+    "@tailwindcss/line-clamp": "^0.4.4",
     "@tippyjs/react": "^4.2.6",
     "axios": "^1.6.0",
     "date-fns": "^2.30.0",

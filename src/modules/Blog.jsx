@@ -3,6 +3,7 @@ import useQuerySnapshot from "../hooks/useQuerySnapshot";
 import { formateDate } from "../utils/helper";
 import Skeleton from "../components/Skeleton";
 import { Link } from "react-router-dom";
+import BlogType from "../components/BlogType";
 
 const Blog = ({ data }) => {
   const { data: user } = useQuerySnapshot("User", "id", data?.userId);
@@ -18,16 +19,21 @@ const Blog = ({ data }) => {
       </div>
 
       <div className="flex flex-col gap-2 bg-whiteSoft shadow-sm p-3 rounded-br-lg rounded-bl-lg">
-        <span className="capitalize font-bold text-sm bg-blue-500 bg-opacity-20 text-indigo-500 w-fit px-5 py-2 rounded-full ">
-          {data?.category}
-        </span>
+        <div className="flex items-center justify-between">
+          <span className="capitalize font-bold text-sm bg-blue-500 bg-opacity-20 text-indigo-500 w-fit px-5 py-2 rounded-full ">
+            {data?.category}
+          </span>
+          <BlogType category={data?.type} />
+        </div>
         <Link
           to={`/${data?.slug}`}
-          className="font-bold text-slate-900 text-2xl leading-tight hover:underline cursor-pointer"
+          className="font-bold text-slate-900 text-2xl line-clamp-2 leading-tight hover:underline cursor-pointer"
         >
           {data?.title}
         </Link>
-        <p className="text-slate-700 text-sm">{data?.description}</p>
+        <p className="text-slate-700 text-sm line-clamp-3">
+          {data?.description}
+        </p>
 
         {/* Author */}
         <div className="flex items-center gap-3 mt-2">

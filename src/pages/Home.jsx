@@ -1,15 +1,24 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Banner from "../components/Banner";
 import { blogCategories } from "../utils/constant";
 import FeatureBlog from "../modules/FeatureBlog";
 import Blog, { BlogSkeleton } from "../modules/Blog";
 import { useAuth } from "../context/AuthContext";
 import useFetchCollection from "../hooks/useFetchCollection";
+import useFetchBlogType from "../hooks/useFetchBlogType";
 
 const Home = () => {
   const { currentUser } = useAuth();
   const { data: blogs, isLoading } = useFetchCollection("Blog");
-  // console.log(currentUser);
+  const { data: featureBlogs, isLoading: loading } = useFetchBlogType(
+    "Blog",
+    "Feature"
+  );
+  const [firstBlog, ...rest] = featureBlogs;
+
+  useEffect(() => {
+    document.body.scrollIntoView({ behavior: "smooth", block: "start" });
+  }, []);
 
   return (
     <main className="page-container py-5">
@@ -34,7 +43,7 @@ const Home = () => {
 
       {/* Blogs */}
       <section className="my-5">
-        <FeatureBlog />
+        <FeatureBlog data={firstBlog} />
         <ul className="mt-8 grid grid-cols-3 gap-x-2 gap-y-5 ">
           {isLoading &&
             Array(6)
