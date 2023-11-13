@@ -1,9 +1,9 @@
 import React from "react";
 import { AuthProvider } from "../../context/AuthContext";
 import { Outlet } from "react-router-dom";
-import ButtonScrollTop from "../buttons/ButtonScrollTop";
 import Header from "../shared/Header";
 import Footer from "../shared/Footer";
+import ButtonScrollTop from "../buttons/ButtonScrollTop";
 
 const MainLayout = () => {
   return (

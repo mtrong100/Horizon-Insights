@@ -8,11 +8,11 @@ import Dashboard from "./pages/Dashboard";
 import CreateBlog from "./pages/CreateBlog";
 import BlogDetail from "./pages/BlogDetail";
 import ManageBlog from "./pages/ManageBlog";
-import EditBlog from "./pages/EditBlog";
-import Category from "./pages/Category";
 import MainLayout from "./components/layouts/MainLayout";
 import DashboardLayout from "./components/layouts/DashboardLayout";
 import ContentLayout from "./components/layouts/ContentLayout";
+import EditBlog from "./pages/EditBlog";
+import Category from "./pages/Category";
 
 function App() {
   return (
