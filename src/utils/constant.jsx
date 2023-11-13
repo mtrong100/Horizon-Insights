@@ -82,4 +82,19 @@ export const sidebarLinks = [
   },
 ];
 
+export const filterOption = [
+  {
+    title: "All",
+    value: "all",
+  },
+  {
+    title: "Hot",
+    value: "Hot",
+  },
+  {
+    title: "Feature",
+    value: "Feature",
+  },
+];
+
 export const typeBlogs = ["Normal", "Feature", "Hot"];

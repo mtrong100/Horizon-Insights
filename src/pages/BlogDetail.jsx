@@ -68,12 +68,12 @@ const BlogDetail = () => {
             Explore more
           </h1>
           <ul className="flex flex-col gap-5 mt-5">
-            {isLoading &&
+            {blogLoading &&
               Array(6)
                 .fill(0)
                 .map((item, index) => <BlogSkeleton key={index} />)}
 
-            {!isLoading &&
+            {!blogLoading &&
               blogs &&
               blogs.length > 0 &&
               blogs.map((blog) => <Blog key={blog.id} data={blog} />)}
