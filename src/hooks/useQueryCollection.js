@@ -1,9 +1,9 @@
 import { useState, useEffect } from "react";
 import { collection, getDocs, orderBy, query, where } from "firebase/firestore";
-import { db } from "../utils/firebase-app";
+import { db } from "../utils/firebase";
 /* ====================================================== */
 
-const useQueryCollection = (collectionName, fieldName, fieldValue) => {
+const useQueryCollection = (collectionName, fieldName, fieldValue, option) => {
   const [data, setData] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
@@ -15,7 +15,7 @@ const useQueryCollection = (collectionName, fieldName, fieldValue) => {
         const queryRef = query(
           collection(db, collectionName),
           where(fieldName, "==", fieldValue),
-          orderBy("createdAt", "desc")
+          orderBy("createdAt", option)
         );
 
         const querySnapshot = await getDocs(queryRef);
@@ -27,8 +27,6 @@ const useQueryCollection = (collectionName, fieldName, fieldValue) => {
           }
         });
 
-        // results.sort((a, b) => b.createdAt - a.createdAt);
-
         setData(results);
         setIsLoading(false);
       } catch (error) {
@@ -36,7 +34,7 @@ const useQueryCollection = (collectionName, fieldName, fieldValue) => {
       }
     }
     fetchData();
-  }, [fieldValue, collectionName, fieldName]);
+  }, [fieldValue, collectionName, fieldName, option]);
 
   return { data, isLoading };
 };

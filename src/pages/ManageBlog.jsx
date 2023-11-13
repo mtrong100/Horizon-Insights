@@ -60,6 +60,12 @@ const ManageBlog = () => {
           </p>
         )}
 
+        {!isLoading && filteredBlogs.length === 0 && (
+          <p className="text-3xl font-bold opacity-50 text-center my-10">
+            No blogs found!
+          </p>
+        )}
+
         {!isLoading &&
           filteredBlogs &&
           filteredBlogs.length > 0 &&

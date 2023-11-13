@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Label from "../components/Label";
 import FieldInput from "../components/form/FieldInput";
 import { useForm } from "react-hook-form";
@@ -13,15 +13,11 @@ import HTMLReactParser from "html-react-parser";
 import { MdOutlineUploadFile } from "react-icons/md";
 import useUploadPhoto from "../hooks/useUploadPhoto";
 import { toast } from "sonner";
-import { useAuth } from "../context/AuthContext";
 import slugify from "slugify";
-import {
-  addDoc,
-  collection,
-  serverTimestamp,
-  updateDoc,
-} from "firebase/firestore";
+import { doc, updateDoc } from "firebase/firestore";
 import { db } from "../utils/firebase";
+import { useNavigate, useParams } from "react-router-dom";
+import useQuerySnapshot from "../hooks/useQuerySnapshot";
 
 const schema = yup.object().shape({
   title: yup
@@ -31,7 +27,6 @@ const schema = yup.object().shape({
     .required("Title is required"),
   category: yup
     .string()
-    .lowercase()
     .min(2, "Category is too short")
     .max(15, "Category is too long")
     .required("Category is required"),
@@ -42,7 +37,7 @@ const schema = yup.object().shape({
     .required("Description is required"),
 });
 
-const CreateBlog = () => {
+const EditBlog = () => {
   const {
     register,
     handleSubmit,
@@ -58,7 +53,9 @@ const CreateBlog = () => {
     },
   });
 
-  const { currentUser } = useAuth();
+  const navigate = useNavigate();
+  const { id } = useParams();
+  const { data } = useQuerySnapshot("Blog", "id", id);
   const [type, setType] = useState("Normal");
   const editor = useRef(null);
   const [content, setContent] = useState("");
@@ -68,6 +65,15 @@ const CreateBlog = () => {
     progress,
     handleSelectImage,
   } = useUploadPhoto();
+
+  useEffect(() => {
+    if (data) {
+      reset({ ...data });
+      setThumbnail(data.thumbnail);
+      setType(data.type);
+      setContent(data.content);
+    }
+  }, [data, reset, setThumbnail]);
 
   const onSubmit = async (values) => {
     if (!isValid) return;
@@ -85,34 +91,20 @@ const CreateBlog = () => {
     }
 
     try {
-      const blogRef = collection(db, "Blog");
-      const docRef = await addDoc(blogRef, {
+      const blogDocRef = doc(db, "Blog", id);
+      await updateDoc(blogDocRef, {
         ...values,
         slug: slugify(values.title, { lower: true }),
         content,
         type,
         thumbnail,
-        userId: currentUser?.id,
-        createdAt: serverTimestamp(),
       });
 
-      await updateDoc(docRef, {
-        id: docRef.id,
-      });
-
-      // reset({
-      //   title: "",
-      //   description: "",
-      //   category: "",
-      // });
-      setThumbnail("");
-      // setContent("");
-      setType("Normal");
-
-      toast.success("Create blog successfully!");
+      navigate("/manage-blog");
+      toast.success("Update blog successfully!");
     } catch (error) {
       console.log(error);
-      toast.error("Failed! Can not create blog");
+      toast.error("Failed! Can not update blog");
     }
   };
 
@@ -148,12 +140,24 @@ const CreateBlog = () => {
             )}
 
             {thumbnail && (
-              <div className="h-[250px] ">
+              <div className="h-[250px] relative">
                 <img
                   src={thumbnail}
                   alt="blog-thumbnail"
                   className="img-cover rounded-xl"
                 />
+
+                <div className="absolute top-2/4 left-2/4 -translate-x-2/4 -translate-y-2/4 w-[60px] h-[60px] rounded-full text-white flex items-center justify-center  bg-black cursor-pointer hover:opacity-50 border border-slate-700">
+                  <input
+                    id="upload"
+                    type="file"
+                    onChange={handleSelectImage}
+                    className="cursor-pointer hidden-input"
+                  />
+                  <label htmlFor="upload">
+                    <MdOutlineUploadFile size={30} />
+                  </label>
+                </div>
               </div>
             )}
           </section>
@@ -203,7 +207,7 @@ const CreateBlog = () => {
           </section>
 
           <Button type="submit" isLoading={isSubmitting} className="p-4">
-            Submit
+            Update
           </Button>
         </form>
 
@@ -230,4 +234,4 @@ const CreateBlog = () => {
   );
 };
 
-export default CreateBlog;
+export default EditBlog;
