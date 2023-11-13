@@ -2,11 +2,16 @@ import React, { useEffect } from "react";
 import { useAuth } from "../context/AuthContext";
 import { formateDate } from "../utils/helper";
 import Blog, { BlogSkeleton } from "../modules/Blog";
-import useFetchCollection from "../hooks/useFetchCollection";
+import useQueryCollection from "../hooks/useQueryCollection";
 
 const Dashboard = () => {
   const { currentUser } = useAuth();
-  const { data: blogs, isLoading } = useFetchCollection("Blog");
+  const { data: blogs, isLoading } = useQueryCollection(
+    "Blog",
+    "userId",
+    currentUser?.id,
+    "desc"
+  );
 
   useEffect(() => {
     document.body.scrollIntoView({ behavior: "smooth", block: "start" });
@@ -32,11 +37,21 @@ const Dashboard = () => {
               </div>
             </div>
           </div>
-          <div className="mt-3 font-semibold opacity-80">
+
+          <div className="my-3 font-semibold opacity-80">
             <span>Contact: {currentUser?.email}</span>
             <p className="text-blue-700">
               Joined {formateDate(currentUser?.createdAt)}
             </p>
+          </div>
+
+          <div className="flex items-center gap-2 opacity-90">
+            <span className="font-semibold">
+              {currentUser?.following?.length} Following
+            </span>
+            <span className="font-semibold">
+              {currentUser?.followers?.length} Followers
+            </span>
           </div>
         </div>
         <div className="h-[230px] bg-cyanLinear rounded-xl w-full shadow-md"></div>
@@ -45,7 +60,7 @@ const Dashboard = () => {
 
       <div className="w-full h-[2px] bg-gray-400 opacity-50 mb-3"></div>
 
-      <section className="bg-whiteSoft rounded-xl ">
+      <section className="bg-whiteSoft rounded-xl p-5">
         <div className="flex items-center gap-4 mb-5">
           <span className="font-semibold border-indigo-500 border hover:bg-indigo-500 transition-all cursor-pointer rounded-full text-indigo-500 px-5 py-2 hover:text-white">
             Blog
@@ -54,6 +69,13 @@ const Dashboard = () => {
             Favorite
           </span>
         </div>
+
+        {!isLoading && blogs.length === 0 && (
+          <p className="opacity-50 font-bold text-3xl text-center my-10 ">
+            You don't have any blogs
+          </p>
+        )}
+
         <ul className="grid grid-cols-3 gap-x-2 gap-y-5 ">
           {isLoading &&
             Array(6)

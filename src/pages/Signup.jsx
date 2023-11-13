@@ -3,7 +3,6 @@ import FieldInput from "../components/form/FieldInput";
 import { useForm } from "react-hook-form";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
-import Button from "../components/Button";
 import { toast } from "sonner";
 import { Link, useNavigate } from "react-router-dom";
 import Label from "../components/Label";
@@ -16,6 +15,7 @@ import {
   serverTimestamp,
   updateDoc,
 } from "firebase/firestore";
+import Button from "../components/buttons/Button";
 
 const schema = yup.object().shape({
   username: yup
@@ -58,6 +58,8 @@ const Signup = () => {
         ...values,
         avatar:
           "https://images.unsplash.com/photo-1682687219640-b3f11f4b7234?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        following: [],
+        followers: [],
         createdAt: serverTimestamp(),
       });
 

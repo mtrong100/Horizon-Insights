@@ -6,9 +6,12 @@ import { formateDate } from "../utils/helper";
 import Blog, { BlogSkeleton } from "../modules/Blog";
 import useFetchCollection from "../hooks/useFetchCollection";
 import FollowCard from "../components/FollowCard";
+import ButtonFollow from "../components/buttons/ButtonFollow";
+import { useAuth } from "../context/AuthContext";
 
 const BlogDetail = () => {
   const { slug } = useParams();
+  const { currentUser } = useAuth();
   const { data, isLoading } = useQuerySnapshot("Blog", "slug", slug);
   const { data: user } = useQuerySnapshot("User", "id", data?.userId);
   const { data: blogs, isLoading: blogLoading } = useFetchCollection("Blog");
@@ -39,21 +42,27 @@ const BlogDetail = () => {
         )}
         {!isLoading && data && (
           <div className="bg-whiteSoft p-5 rounded-xl border border-gray-300  mt-3">
-            <div className="flex items-center gap-3 cursor-pointer mb-5">
-              <img
-                src={user?.avatar}
-                alt="user-avatar"
-                className="object-cover w-[100px] h-[100px] rounded-full"
-              />
-              <div>
-                <h3 className="font-bold text-slate-700 text-lg">
-                  Upload by: {user?.username}
-                </h3>
-                <span className="font-semibold opacity-60 inline-block mt-1">
-                  Post: {formateDate(data?.createdAt)}
-                </span>
+            <section className="flex items-center justify-between">
+              <div className="flex items-center gap-3 cursor-pointer mb-5">
+                <img
+                  src={user?.avatar}
+                  alt="user-avatar"
+                  className="object-cover w-[100px] h-[100px] rounded-full"
+                />
+                <div>
+                  <h3 className="font-bold text-slate-700 text-lg">
+                    Post by: {user?.username}
+                  </h3>
+                  <span className="font-semibold opacity-60 inline-block mt-1">
+                    Post: {formateDate(data?.createdAt)}
+                  </span>
+                </div>
               </div>
-            </div>
+
+              {currentUser?.id !== data?.userId && (
+                <ButtonFollow userId={data?.userId} />
+              )}
+            </section>
 
             <main className="blog-content">{parse(data?.content || "")}</main>
           </div>
@@ -68,12 +77,12 @@ const BlogDetail = () => {
             Explore more
           </h1>
           <ul className="flex flex-col gap-5 mt-5">
-            {isLoading &&
+            {blogLoading &&
               Array(6)
                 .fill(0)
                 .map((item, index) => <BlogSkeleton key={index} />)}
 
-            {!isLoading &&
+            {!blogLoading &&
               blogs &&
               blogs.length > 0 &&
               blogs.map((blog) => <Blog key={blog.id} data={blog} />)}

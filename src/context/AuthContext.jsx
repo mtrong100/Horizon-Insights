@@ -8,7 +8,9 @@ const AuthContext = createContext();
 
 const AuthProvider = ({ children }) => {
   const navigate = useNavigate();
-  const [currentUser, setCurrentUser] = useState(null);
+  const [currentUser, setCurrentUser] = useState(
+    () => JSON.parse(localStorage.getItem("USER")) || null
+  );
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, async (user) => {
@@ -23,6 +25,7 @@ const AuthProvider = ({ children }) => {
           const data = docRef.data();
           if (data) {
             setCurrentUser(data);
+            localStorage.setItem("USER", JSON.stringify(data));
           }
         });
       } else {

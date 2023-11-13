@@ -8,8 +8,8 @@ export const menuLinks = [
     link: "/",
   },
   {
-    name: "Blog",
-    link: "/blog",
+    name: "Explore",
+    link: "/explore",
   },
   {
     name: "Contact",
@@ -79,6 +79,21 @@ export const sidebarLinks = [
     name: "Manage",
     icon: <BiSolidPencil />,
     link: "/manage-blog",
+  },
+];
+
+export const filterOption = [
+  {
+    title: "All",
+    value: "all",
+  },
+  {
+    title: "Hot",
+    value: "Hot",
+  },
+  {
+    title: "Feature",
+    value: "Feature",
   },
 ];
 

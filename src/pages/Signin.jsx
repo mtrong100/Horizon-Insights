@@ -3,13 +3,13 @@ import FieldInput from "../components/form/FieldInput";
 import { useForm } from "react-hook-form";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
-import Button from "../components/Button";
 import { toast } from "sonner";
 import { Link, useNavigate } from "react-router-dom";
 import Label from "../components/Label";
 import FieldInputPassword from "../components/form/FieldInputPassword";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../utils/firebase";
+import Button from "../components/buttons/Button";
 
 const schema = yup.object().shape({
   email: yup.string().email("Invalid email").required("Email is required"),

@@ -57,7 +57,7 @@ const MenuDropdown = ({ currentUser }) => {
         leaveFrom="transform opacity-100 scale-100"
         leaveTo="transform opacity-0 scale-95"
       >
-        <Menu.Items className="absolute min-w-[170px] right-0 top-[45px] xl:w-full origin-bottom  bg-whiteSoft rounded-md shadow-lg  ">
+        <Menu.Items className="absolute min-w-[170px] right-0 z-10 top-[45px] xl:w-full origin-bottom  bg-whiteSoft rounded-md shadow-lg  ">
           {dropdownLinks.map((link) => (
             <Menu.Item key={link.label} as={Fragment}>
               {({ active }) => (

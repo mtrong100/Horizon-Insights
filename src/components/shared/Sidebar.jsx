@@ -1,5 +1,5 @@
 import React from "react";
-import { sidebarLinks } from "../utils/constant";
+import { sidebarLinks } from "../../utils/constant";
 import { Link, useLocation } from "react-router-dom";
 
 const Sidebar = () => {
@@ -7,9 +7,9 @@ const Sidebar = () => {
 
   return (
     <aside className="sticky top-0 left-0 w-[280px] h-screen bg-whiteSoft p-4">
-      <h1 className="font-bold text-2xl text-center text-linear">
+      <Link to={"/"} className="font-bold text-2xl text-center text-linear">
         Horizon Insights
-      </h1>
+      </Link>
       <ul className="flex flex-col mt-5 gap-1">
         {sidebarLinks.map((item) => {
           const isActive = location.pathname === item.link;

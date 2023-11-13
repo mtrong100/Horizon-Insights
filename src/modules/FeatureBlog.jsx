@@ -1,5 +1,5 @@
 import React from "react";
-import BlogType from "../components/BlogType";
+import BlogType from "./BlogType";
 import { Link } from "react-router-dom";
 import { formateDate } from "../utils/helper";
 import useQuerySnapshot from "../hooks/useQuerySnapshot";

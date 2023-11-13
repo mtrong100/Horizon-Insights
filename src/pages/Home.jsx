@@ -1,20 +1,31 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import Banner from "../components/Banner";
-import { blogCategories } from "../utils/constant";
 import FeatureBlog, { FeatureBlogSkeleton } from "../modules/FeatureBlog";
 import Blog, { BlogSkeleton } from "../modules/Blog";
 import { useAuth } from "../context/AuthContext";
 import useFetchCollection from "../hooks/useFetchCollection";
 import useFetchBlogType from "../hooks/useFetchBlogType";
+import { Link } from "react-router-dom";
+import slugify from "slugify";
+import HeadingTitle from "../components/HeadingTitle";
 
 const Home = () => {
   const { currentUser } = useAuth();
   const { data: blogs, isLoading } = useFetchCollection("Blog");
+  const [categories, setCategories] = useState([]);
   const { data: featureBlogs, isLoading: loading } = useFetchBlogType(
     "Blog",
     "Feature"
   );
   const [firstBlog, ...rest] = featureBlogs;
+
+  // Filter unique categories from blogs
+  useEffect(() => {
+    if (blogs && blogs.length > 0) {
+      const uniqueCategories = [...new Set(blogs.map((blog) => blog.category))];
+      setCategories(uniqueCategories);
+    }
+  }, [blogs]);
 
   useEffect(() => {
     document.body.scrollIntoView({ behavior: "smooth", block: "start" });
@@ -26,18 +37,22 @@ const Home = () => {
 
       {/* Category */}
       <section className="py-5">
-        <h1 className="text-4xl font-bold text-linear leading-normal">
-          Exlpore Categories
-        </h1>
+        <HeadingTitle>Exlpore Categories</HeadingTitle>
         <ul className="flex items-center gap-5 mt-3">
-          {blogCategories.map((item) => (
-            <li
-              className="font-semibold border-indigo-500 border hover:bg-indigo-500 transition-all cursor-pointer rounded-full text-indigo-500 px-5 py-1 hover:text-white"
-              key={item}
-            >
-              {item}
-            </li>
-          ))}
+          {categories.length > 0 &&
+            categories.map((item) => {
+              const categorySlug = slugify(item, { lower: true });
+
+              return (
+                <Link
+                  to={`/category/${categorySlug}`}
+                  className="font-semibold capitalize border-indigo-500 border hover:bg-indigo-500 transition-all cursor-pointer rounded-full text-indigo-500 px-5 py-2 hover:text-white"
+                  key={item}
+                >
+                  {item}
+                </Link>
+              );
+            })}
         </ul>
       </section>
 

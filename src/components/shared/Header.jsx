@@ -1,8 +1,8 @@
 import React from "react";
-import { menuLinks } from "../utils/constant";
+import { menuLinks } from "../../utils/constant";
 import { Link, useLocation } from "react-router-dom";
-import { useAuth } from "../context/AuthContext";
-import MenuDropdown from "./MenuDropdown";
+import { useAuth } from "../../context/AuthContext";
+import MenuDropdown from "../MenuDropdown";
 
 const Header = () => {
   const { currentUser } = useAuth();

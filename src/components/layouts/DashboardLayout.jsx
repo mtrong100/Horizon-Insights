@@ -1,7 +1,7 @@
 import React from "react";
-import Sidebar from "./Sidebar";
-import { AuthProvider } from "../context/AuthContext";
+import { AuthProvider } from "../../context/AuthContext";
 import { Outlet } from "react-router-dom";
+import Sidebar from "../shared/Sidebar";
 
 const DashboardLayout = () => {
   return (

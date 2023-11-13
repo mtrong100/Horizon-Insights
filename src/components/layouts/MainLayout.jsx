@@ -1,10 +1,9 @@
 import React from "react";
-import Header from "./Header";
-import Home from "../pages/Home";
-import Footer from "./Footer";
-import ButtonScrollTop from "./ButtonScrollTop";
-import { AuthProvider } from "../context/AuthContext";
+import { AuthProvider } from "../../context/AuthContext";
 import { Outlet } from "react-router-dom";
+import ButtonScrollTop from "../buttons/ButtonScrollTop";
+import Header from "../shared/Header";
+import Footer from "../shared/Footer";
 
 const MainLayout = () => {
   return (

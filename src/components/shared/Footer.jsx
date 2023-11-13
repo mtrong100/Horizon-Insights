@@ -5,7 +5,7 @@ import {
   AiFillInstagram,
   AiFillTwitterCircle,
 } from "react-icons/ai";
-import { footerDetails } from "../utils/constant";
+import { footerDetails } from "../../utils/constant";
 
 const socialIcons = [
   <AiFillFacebook />,

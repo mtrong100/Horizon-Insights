@@ -2,15 +2,17 @@ import { Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
 import Signin from "./pages/Signin";
 import Signup from "./pages/Signup";
-import MainLayout from "./components/MainLayout";
-import Blog from "./pages/Blog";
+import Explore from "./pages/Explore";
 import Contact from "./pages/Contact";
 import Dashboard from "./pages/Dashboard";
-import DashboardLayout from "./components/DashboardLayout";
 import CreateBlog from "./pages/CreateBlog";
 import BlogDetail from "./pages/BlogDetail";
 import ManageBlog from "./pages/ManageBlog";
-import ContentLayout from "./components/ContentLayout";
+import EditBlog from "./pages/EditBlog";
+import Category from "./pages/Category";
+import MainLayout from "./components/layouts/MainLayout";
+import DashboardLayout from "./components/layouts/DashboardLayout";
+import ContentLayout from "./components/layouts/ContentLayout";
 
 function App() {
   return (
@@ -20,7 +22,8 @@ function App() {
 
       <Route element={<MainLayout />}>
         <Route path="/" element={<Home />} />
-        <Route path="/blog" element={<Blog />} />
+        <Route path="/explore" element={<Explore />} />
+        <Route path="/category/:slug" element={<Category />} />
         <Route element={<ContentLayout />}>
           <Route path="/:slug" element={<BlogDetail />} />
         </Route>
@@ -30,6 +33,7 @@ function App() {
       <Route element={<DashboardLayout />}>
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/create-blog" element={<CreateBlog />} />
+        <Route path="/edit-blog/:id" element={<EditBlog />} />
         <Route path="/manage-blog" element={<ManageBlog />} />
       </Route>
     </Routes>

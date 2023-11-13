@@ -8,6 +8,7 @@ import {
   query,
 } from "firebase/firestore";
 import { db } from "../utils/firebase";
+import ButtonFollow from "./buttons/ButtonFollow";
 
 const FollowCard = () => {
   const { currentUser } = useAuth();
@@ -36,7 +37,7 @@ const FollowCard = () => {
     return () => unsubscribe();
   }, []);
 
-  const users = data.filter((item) => item.id !== currentUser.id);
+  const users = data.filter((item) => item.id !== currentUser?.id);
 
   return (
     <div className="p-5 rounded-lg bg-white">
@@ -53,7 +54,13 @@ const FollowCard = () => {
         {!isLoading &&
           users &&
           users.length > 0 &&
-          users.map((item) => <UserItem key={item.id} data={item} />)}
+          users.map((item) => (
+            <UserItem
+              key={item.id}
+              data={item}
+              currentUserId={currentUser?.id}
+            />
+          ))}
       </ul>
     </div>
   );
@@ -61,7 +68,7 @@ const FollowCard = () => {
 
 export default FollowCard;
 
-function UserItem({ data }) {
+function UserItem({ data, currentUserId }) {
   return (
     <li className="flex items-center justify-between">
       <div className="flex items-center gap-4">
@@ -72,10 +79,7 @@ function UserItem({ data }) {
         />
         <h3 className="font-semibold text-lg">{data?.username}</h3>
       </div>
-
-      <button className="py-2 px-4 border-indigo-500 border font-medium rounded-full text-indigo-500 hover:bg-indigo-100">
-        Follow
-      </button>
+      <ButtonFollow userId={data?.id} />
     </li>
   );
 }

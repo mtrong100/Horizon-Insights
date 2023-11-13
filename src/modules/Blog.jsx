@@ -3,9 +3,12 @@ import useQuerySnapshot from "../hooks/useQuerySnapshot";
 import { formateDate } from "../utils/helper";
 import Skeleton from "../components/Skeleton";
 import { Link } from "react-router-dom";
-import BlogType from "../components/BlogType";
+import BlogType from "./BlogType";
+import ButtonFollow from "../components/buttons/ButtonFollow";
+import { useAuth } from "../context/AuthContext";
 
 const Blog = ({ data }) => {
+  const { currentUser } = useAuth();
   const { data: user } = useQuerySnapshot("User", "id", data?.userId);
 
   return (
@@ -36,18 +39,24 @@ const Blog = ({ data }) => {
         </p>
 
         {/* Author */}
-        <div className="flex items-center gap-3 mt-2">
-          <img
-            src={user?.avatar}
-            alt="user-avatar"
-            className="object-cover w-[50px] h-[50px] rounded-full flex-shrink-0"
-          />
-          <div>
-            <h3 className="font-bold text-slate-700 ">{user?.username}</h3>
-            <p className="text-sm font-medium">
-              {formateDate(data?.createdAt)}
-            </p>
+        <div className="flex items-center  mt-2 justify-between">
+          <div className="flex items-center gap-3">
+            <img
+              src={user?.avatar}
+              alt="user-avatar"
+              className="object-cover w-[50px] h-[50px] rounded-full flex-shrink-0"
+            />
+            <div>
+              <h3 className="font-bold text-slate-700 ">{user?.username}</h3>
+              <p className="text-sm font-medium">
+                {formateDate(data?.createdAt)}
+              </p>
+            </div>
           </div>
+
+          {currentUser?.id !== data?.userId && (
+            <ButtonFollow userId={data?.userId} />
+          )}
         </div>
       </div>
     </article>
