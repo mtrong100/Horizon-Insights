@@ -44,9 +44,7 @@ const ButtonLike = ({ blogId }) => {
   };
 
   return (
-    <div className="flex items-center flex-col gap-2">
-      <span className="text-lg font-medium">{data?.likes?.length || 0}</span>
-
+    <div className="flex items-center  gap-2">
       {data?.likes?.some((item) => item === currentUser?.id) ? (
         <button
           disabled={isLoading}
@@ -72,6 +70,7 @@ const ButtonLike = ({ blogId }) => {
           <BiLike size={25} />
         </button>
       )}
+      <span className="text-xl font-medium">{data?.likes?.length || 0}</span>
     </div>
   );
 };

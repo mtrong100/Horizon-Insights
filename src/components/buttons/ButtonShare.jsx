@@ -10,7 +10,7 @@ const ButtonShare = () => {
   return (
     <button
       onClick={handleCopyLink}
-      className="flex items-center justify-center hover:bg-gray-200 cursor-pointer w-[50px] h-[50px] bg-gray-100 border shadow-sm rounded-full"
+      className="flex items-center justify-center hover:bg-gray-200 cursor-pointer border border-slate-500 w-[50px] h-[50px] bg-gray-100 border shadow-sm rounded-full"
     >
       <BsLink45Deg size={25} />
     </button>

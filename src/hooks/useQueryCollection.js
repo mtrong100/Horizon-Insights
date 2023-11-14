@@ -36,7 +36,7 @@ const useQueryCollection = (collectionName, fieldName, fieldValue, option) => {
     fetchData();
   }, [fieldValue, collectionName, fieldName, option]);
 
-  return { data, isLoading };
+  return { data, isLoading, setData };
 };
 
 export default useQueryCollection;

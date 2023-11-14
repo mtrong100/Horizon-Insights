@@ -8,8 +8,6 @@ import useFetchCollection from "../hooks/useFetchCollection";
 import FollowCard from "../components/FollowCard";
 import ButtonFollow from "../components/buttons/ButtonFollow";
 import { useAuth } from "../context/AuthContext";
-import { BiComment, BiLike } from "react-icons/bi";
-import { BsLink45Deg } from "react-icons/bs";
 import ButtonLike from "../components/buttons/ButtonLike";
 import ButtonComment from "../components/buttons/ButtonComment";
 import ButtonShare from "../components/buttons/ButtonShare";
@@ -106,7 +104,7 @@ const BlogDetail = () => {
           </ul>
         </div>
 
-        <SidebarComment />
+        <SidebarComment blogId={data?.id} />
       </section>
     </React.Fragment>
   );

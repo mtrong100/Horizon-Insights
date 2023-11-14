@@ -5,12 +5,16 @@ import Blog, { BlogSkeleton } from "../modules/Blog";
 import { useAuth } from "../context/AuthContext";
 import useFetchCollection from "../hooks/useFetchCollection";
 import useFetchBlogType from "../hooks/useFetchBlogType";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import slugify from "slugify";
 import HeadingTitle from "../components/HeadingTitle";
+import { useDispatch } from "react-redux";
+import { setSidebarOpen, storeBlogId } from "../redux/slices/globalSlice";
 
 const Home = () => {
   const { currentUser } = useAuth();
+  const dispatch = useDispatch();
+  const location = useLocation();
   const { data: blogs, isLoading } = useFetchCollection("Blog");
   const [categories, setCategories] = useState([]);
   const { data: featureBlogs, isLoading: loading } = useFetchBlogType(
@@ -26,6 +30,12 @@ const Home = () => {
       setCategories(uniqueCategories);
     }
   }, [blogs]);
+
+  useEffect(() => {
+    if (location.pathname === "/") {
+      dispatch(setSidebarOpen(false));
+    }
+  }, [dispatch, location.pathname]);
 
   useEffect(() => {
     document.body.scrollIntoView({ behavior: "smooth", block: "start" });
