@@ -8,6 +8,12 @@ import useFetchCollection from "../hooks/useFetchCollection";
 import FollowCard from "../components/FollowCard";
 import ButtonFollow from "../components/buttons/ButtonFollow";
 import { useAuth } from "../context/AuthContext";
+import { BiComment, BiLike } from "react-icons/bi";
+import { BsLink45Deg } from "react-icons/bs";
+import ButtonLike from "../components/buttons/ButtonLike";
+import ButtonComment from "../components/buttons/ButtonComment";
+import ButtonShare from "../components/buttons/ButtonShare";
+import SidebarComment from "../components/SidebarComment";
 
 const BlogDetail = () => {
   const { slug } = useParams();
@@ -43,25 +49,36 @@ const BlogDetail = () => {
         {!isLoading && data && (
           <div className="bg-whiteSoft p-5 rounded-xl border border-gray-300  mt-3">
             <section className="flex items-center justify-between">
-              <div className="flex items-center gap-3 cursor-pointer mb-5">
-                <img
-                  src={user?.avatar}
-                  alt="user-avatar"
-                  className="object-cover w-[100px] h-[100px] rounded-full"
-                />
-                <div>
-                  <h3 className="font-bold text-slate-700 text-lg">
-                    Post by: {user?.username}
-                  </h3>
-                  <span className="font-semibold opacity-60 inline-block mt-1">
-                    Post: {formateDate(data?.createdAt)}
-                  </span>
+              <div className="flex items-center gap-5">
+                {/* Author */}
+                <div className="flex items-center gap-3 cursor-pointer mb-5">
+                  <img
+                    src={user?.avatar}
+                    alt="user-avatar"
+                    className="object-cover w-[100px] h-[100px] rounded-full"
+                  />
+                  <div>
+                    <h3 className="font-bold text-slate-700 text-lg">
+                      Post by: {user?.username}
+                    </h3>
+                    <span className="font-semibold opacity-60 inline-block mt-1">
+                      Post: {formateDate(data?.createdAt)}
+                    </span>
+                  </div>
+                </div>
+
+                <div className="flex items-center gap-5 border-l-2 pl-5 border-slate-600">
+                  <ButtonLike blogId={data?.id} />
+                  <ButtonComment blogId={data?.id} />
                 </div>
               </div>
 
-              {currentUser?.id !== data?.userId && (
-                <ButtonFollow userId={data?.userId} />
-              )}
+              <div className="flex items-center gap-5">
+                <ButtonShare />
+                {currentUser?.id !== data?.userId && (
+                  <ButtonFollow userId={data?.userId} />
+                )}
+              </div>
             </section>
 
             <main className="blog-content">{parse(data?.content || "")}</main>
@@ -69,7 +86,7 @@ const BlogDetail = () => {
         )}
       </section>
 
-      <section className="flex flex-col gap-5 sticky ">
+      <section className="flex flex-col gap-5 ">
         <FollowCard />
 
         <div className="p-5 rounded-lg bg-white">
@@ -88,6 +105,8 @@ const BlogDetail = () => {
               blogs.map((blog) => <Blog key={blog.id} data={blog} />)}
           </ul>
         </div>
+
+        <SidebarComment />
       </section>
     </React.Fragment>
   );

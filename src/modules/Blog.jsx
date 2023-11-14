@@ -1,15 +1,21 @@
-import React from "react";
+import React, { useEffect } from "react";
 import useQuerySnapshot from "../hooks/useQuerySnapshot";
 import { formateDate } from "../utils/helper";
 import Skeleton from "../components/Skeleton";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import BlogType from "./BlogType";
 import ButtonFollow from "../components/buttons/ButtonFollow";
 import { useAuth } from "../context/AuthContext";
 
 const Blog = ({ data }) => {
   const { currentUser } = useAuth();
+  const navigate = useNavigate();
   const { data: user } = useQuerySnapshot("User", "id", data?.userId);
+
+  const handleClick = () => {
+    navigate(`/${data?.slug}`);
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
 
   return (
     <article className="flex flex-col">
@@ -28,12 +34,12 @@ const Blog = ({ data }) => {
           </span>
           <BlogType category={data?.type} />
         </div>
-        <Link
-          to={`/${data?.slug}`}
+        <h1
+          onClick={handleClick}
           className="font-bold text-slate-900 text-2xl line-clamp-2 leading-tight hover:underline cursor-pointer"
         >
           {data?.title}
-        </Link>
+        </h1>
         <p className="text-slate-700 text-sm line-clamp-3">
           {data?.description}
         </p>

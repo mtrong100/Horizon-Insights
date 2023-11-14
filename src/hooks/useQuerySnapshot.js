@@ -32,7 +32,7 @@ const useQuerySnapshot = (collectionName, fieldName, fieldValue) => {
     fetchData();
   }, [fieldValue, collectionName, fieldName]);
 
-  return { data, isLoading };
+  return { data, isLoading, setData };
 };
 
 export default useQuerySnapshot;

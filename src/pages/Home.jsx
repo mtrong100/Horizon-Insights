@@ -31,6 +31,8 @@ const Home = () => {
     document.body.scrollIntoView({ behavior: "smooth", block: "start" });
   }, []);
 
+  const filteredBlogs = blogs.filter((item) => item.id !== firstBlog.id);
+
   return (
     <main className="page-container py-5">
       <Banner />
@@ -67,9 +69,9 @@ const Home = () => {
               .map((item, index) => <BlogSkeleton key={index} />)}
 
           {!isLoading &&
-            blogs &&
-            blogs.length > 0 &&
-            blogs.map((blog) => <Blog key={blog.id} data={blog} />)}
+            filteredBlogs &&
+            filteredBlogs.length > 0 &&
+            filteredBlogs.map((blog) => <Blog key={blog.id} data={blog} />)}
         </ul>
       </section>
     </main>
