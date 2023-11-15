@@ -72,7 +72,7 @@ const BlogDetail = () => {
               </div>
 
               <div className="flex items-center gap-5">
-                <ButtonShare />
+                <ButtonShare slug={data?.slug} />
                 {currentUser?.id !== data?.userId && (
                   <ButtonFollow userId={data?.userId} />
                 )}
