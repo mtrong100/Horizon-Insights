@@ -46,9 +46,11 @@ const Explore = () => {
 
         <div
           onClick={() => (sort === "desc" ? setSort("asc") : setSort("desc"))}
-          className="border bg-blue-500 text-white cursor-pointer  gap-1 py-2 w-[110px] hover:bg-blue-600 justify-center flex items-center rounded-full"
+          className="border bg-blue-500 text-white cursor-pointer  gap-1 py-2 w-[120px] hover:bg-blue-600 justify-center flex items-center rounded-full"
         >
-          <p className="capitalize font-semibold text-lg">{sort}</p>
+          <p className="capitalize font-semibold text-lg">
+            {sort === "desc" ? "Recent" : "Older"}
+          </p>
           <span>
             <HiOutlineSwitchVertical size={22} />
           </span>

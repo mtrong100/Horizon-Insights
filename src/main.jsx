@@ -11,7 +11,14 @@ ReactDOM.createRoot(document.getElementById("root")).render(
   <BrowserRouter>
     <Provider store={store}>
       <App />
-      <Toaster richColors position="top-center" duration={2000} />
+      <Toaster
+        richColors
+        position="top-center"
+        duration={2000}
+        toastOptions={{
+          style: { fontSize: "18px" },
+        }}
+      />
     </Provider>
   </BrowserRouter>
 );

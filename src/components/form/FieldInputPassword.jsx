@@ -14,25 +14,27 @@ const FieldInputPassword = ({
   const [togglePassword, setTogglePassword] = useState(false);
 
   return (
-    <div className="w-full relative">
-      <input
-        id={name}
-        name={name}
-        type={togglePassword ? "text" : "password"}
-        {...register(name)}
-        className={twMerge(
-          "p-3 outline-none rounded-md border w-full bg-transparent border-gray-500 focus:border-blue-400",
-          className
-        )}
-        placeholder={placeholder}
-      />
+    <div className="w-full ">
+      <div className="relative">
+        <input
+          id={name}
+          name={name}
+          type={togglePassword ? "text" : "password"}
+          {...register(name)}
+          className={twMerge(
+            "p-3 outline-none rounded-md border w-full bg-transparent border-gray-500 focus:border-blue-400",
+            className
+          )}
+          placeholder={placeholder}
+        />
 
-      <span
-        onClick={() => setTogglePassword(!togglePassword)}
-        className="absolute cursor-pointer opacity-60 top-2/4 -translate-x-2/4 -translate-y-2/4 right-2"
-      >
-        <AiOutlineEyeInvisible size={20} />
-      </span>
+        <span
+          onClick={() => setTogglePassword(!togglePassword)}
+          className="absolute cursor-pointer opacity-60 top-2/4 -translate-x-2/4 -translate-y-2/4 right-2"
+        >
+          <AiOutlineEyeInvisible size={20} />
+        </span>
+      </div>
 
       {error && (
         <p className="mt-1 text-rose-500 font-medium text-sm">{error}</p>

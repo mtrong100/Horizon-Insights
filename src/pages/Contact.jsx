@@ -1,7 +1,43 @@
 import React from "react";
+import HeadingTitle from "../components/HeadingTitle";
 
 const Contact = () => {
-  return <div>Contact</div>;
+  return (
+    <section className="page-container">
+      <HeadingTitle className="text-center text-5xl mt-5">
+        Contact to us
+      </HeadingTitle>
+
+      <div className="flex items-center justify-between gap-3">
+        <div className="flex flex-col gap-5 flex-1">
+          <input
+            type="text"
+            className="input-styles focus:bg-gray-50"
+            placeholder="Enter your username"
+          />
+          <input
+            type="text"
+            className="input-styles focus:bg-gray-50"
+            placeholder="Enter your email"
+          />
+          <textarea
+            cols="30"
+            rows="10"
+            className="input-styles resize-none focus:bg-gray-50"
+            placeholder="Write your thoughts..."
+          ></textarea>
+        </div>
+
+        <div className="flex-shrink-0 flex-1">
+          <img
+            src="/contact-image.png"
+            alt="image"
+            className="img-cover rounded-lg"
+          />
+        </div>
+      </div>
+    </section>
+  );
 };
 
 export default Contact;

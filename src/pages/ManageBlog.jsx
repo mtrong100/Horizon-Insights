@@ -1,11 +1,19 @@
 import React, { useState } from "react";
-import useFetchCollection from "../hooks/useFetchCollection";
 import useOnchange from "../hooks/useOnchange";
 import { filterOption } from "../utils/constant";
 import BlogItem from "../modules/BlogItem";
+import { useAuth } from "../context/AuthContext";
+import useQueryCollection from "../hooks/useQueryCollection";
 
 const ManageBlog = () => {
-  const { data: blogs, isLoading } = useFetchCollection("Blog");
+  const { currentUser } = useAuth();
+  const { data: blogs, isLoading } = useQueryCollection(
+    "Blog",
+    "userId",
+    currentUser?.id,
+    "desc"
+  );
+
   const { value, handleChange } = useOnchange();
   const [filter, setFilter] = useState("all");
 

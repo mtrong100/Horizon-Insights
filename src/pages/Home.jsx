@@ -9,7 +9,7 @@ import { Link, useLocation } from "react-router-dom";
 import slugify from "slugify";
 import HeadingTitle from "../components/HeadingTitle";
 import { useDispatch } from "react-redux";
-import { setSidebarOpen, storeBlogId } from "../redux/slices/globalSlice";
+import { setSidebarOpen } from "../redux/slices/globalSlice";
 
 const Home = () => {
   const { currentUser } = useAuth();
@@ -70,7 +70,11 @@ const Home = () => {
 
       {/* Blogs */}
       <section className="my-5">
-        {loading ? <FeatureBlogSkeleton /> : <FeatureBlog data={firstBlog} />}
+        {loading ? (
+          <FeatureBlogSkeleton />
+        ) : (
+          <FeatureBlog data={firstBlog} currentUser={currentUser} />
+        )}
 
         <ul className="mt-8 grid grid-cols-3 gap-x-2 gap-y-5 ">
           {isLoading &&

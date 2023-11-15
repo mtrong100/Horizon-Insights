@@ -1,6 +1,9 @@
-import { AiOutlinePlus, AiOutlineUser, AiOutlineHome } from "react-icons/ai";
+import { AiOutlinePlus, AiOutlineHome } from "react-icons/ai";
 import { BiSolidPencil } from "react-icons/bi";
 import { MdOutlineDashboardCustomize } from "react-icons/md";
+
+export const profileImage =
+  "https://images.unsplash.com/photo-1682687219640-b3f11f4b7234?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D";
 
 export const menuLinks = [
   {
@@ -15,14 +18,6 @@ export const menuLinks = [
     name: "Contact",
     link: "/contact",
   },
-];
-
-export const blogCategories = [
-  "Javascript",
-  "React",
-  "Tailwind CSS",
-  "Firebase",
-  "Redux",
 ];
 
 export const footerDetails = [
@@ -98,3 +93,4 @@ export const filterOption = [
 ];
 
 export const typeBlogs = ["Normal", "Feature", "Hot"];
+export const tabs = ["Blog", "Favorite"];

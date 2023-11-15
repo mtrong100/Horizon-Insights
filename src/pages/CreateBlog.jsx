@@ -102,13 +102,13 @@ const CreateBlog = () => {
         id: docRef.id,
       });
 
-      // reset({
-      //   title: "",
-      //   description: "",
-      //   category: "",
-      // });
+      reset({
+        title: "",
+        description: "",
+        category: "",
+      });
       setThumbnail("");
-      // setContent("");
+      setContent("");
       setType("Normal");
 
       toast.success("Create blog successfully!");

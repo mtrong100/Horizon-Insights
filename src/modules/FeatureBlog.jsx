@@ -4,8 +4,9 @@ import { Link } from "react-router-dom";
 import { formateDate } from "../utils/helper";
 import useQuerySnapshot from "../hooks/useQuerySnapshot";
 import Skeleton from "../components/Skeleton";
+import ButtonFollow from "../components/buttons/ButtonFollow";
 
-const FeatureBlog = ({ data }) => {
+const FeatureBlog = ({ data, currentUser }) => {
   const { data: user } = useQuerySnapshot("User", "id", data?.userId);
 
   return (
@@ -34,19 +35,23 @@ const FeatureBlog = ({ data }) => {
         <p className="text-slate-700 ">{data?.description}</p>
 
         {/* Author */}
-        <div className="flex items-center gap-3 mt-2">
-          <img
-            src={user?.avatar}
-            alt="user-avatar"
-            className="object-cover w-[50px] h-[50px] rounded-full flex-shrink-0"
-          />
-          <div>
-            <h3 className="font-bold text-slate-700 ">{user?.username}</h3>
-            <p className="text-sm font-medium">
-              {formateDate(data?.createdAt)}
-            </p>
+        <section className="flex items-center justify-between">
+          <div className="flex items-center gap-3 mt-2">
+            <img
+              src={user?.avatar}
+              alt="user-avatar"
+              className="object-cover w-[50px] h-[50px] rounded-full flex-shrink-0"
+            />
+            <div>
+              <h3 className="font-bold text-slate-700 ">{user?.username}</h3>
+              <p className="text-sm font-medium">
+                {formateDate(data?.createdAt)}
+              </p>
+            </div>
           </div>
-        </div>
+
+          {currentUser?.id !== user?.id && <ButtonFollow userId={user?.id} />}
+        </section>
       </div>
     </article>
   );

@@ -6,11 +6,11 @@ const BlogType = ({ category }) => {
 
   switch (category) {
     case "Hot":
-      style = "bg-rose-500 text-rose-500 border border-rose-600";
+      style = "bg-hotLinear ";
       name = "Hot";
       break;
     case "Feature":
-      style = "bg-green-500 text-green-500 border border-green-600";
+      style = "bg-featureLinear ";
       name = "Feature";
       break;
 
@@ -20,7 +20,7 @@ const BlogType = ({ category }) => {
 
   return (
     <span
-      className={`${style} capitalize font-bold text-sm  bg-opacity-20  w-fit px-5 py-2 rounded-tl-xl rounded-br-xl`}
+      className={`${style} capitalize font-bold text-sm text-white  bg-opacity-20  w-fit px-5 py-2 rounded-lg`}
     >
       {name}
     </span>

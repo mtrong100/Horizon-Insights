@@ -4,15 +4,7 @@ import HeadingTitle from "./HeadingTitle";
 import Comment, { CommentSkeleton } from "./Comment";
 import InputEmoji from "react-input-emoji";
 import { toast } from "sonner";
-import {
-  addDoc,
-  arrayUnion,
-  collection,
-  doc,
-  getDoc,
-  serverTimestamp,
-  updateDoc,
-} from "firebase/firestore";
+import { arrayUnion, doc, getDoc, updateDoc } from "firebase/firestore";
 import { db } from "../utils/firebase";
 import { useAuth } from "../context/AuthContext";
 import { IoClose } from "react-icons/io5";
@@ -22,7 +14,6 @@ import {
   storeBlogId,
   storeCmtData,
 } from "../redux/slices/globalSlice";
-import useQueryCollection from "../hooks/useQueryCollection";
 import { v4 as uuidv4 } from "uuid";
 import useQuerySnapshot from "../hooks/useQuerySnapshot";
 

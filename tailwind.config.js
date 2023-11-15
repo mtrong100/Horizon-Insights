@@ -43,9 +43,9 @@ module.exports = {
       },
       backgroundImage: {
         /* GRADIENT-COLOR */
-        cyanLinear: "linear-gradient(to bottom , #36d1dc, #1d9bf0)",
-        primaryGradient: "linear-gradient(to right , #5b86e5, #36d1dc)",
-        secondaryGradient: "linear-gradient(to right , #1d9bf0, #7856ff)",
+        cyanLinear: "linear-gradient(to right , #1d9bf0, #7856ff)",
+        featureLinear: "linear-gradient(to right , #00ba7c, #20E3B2)",
+        hotLinear: "linear-gradient(to right , #f91880, #f54d5e)",
       },
     },
   },

@@ -21,9 +21,31 @@
   .loading-circle {
     @apply border-4 border-t-4 border-t-transparent w-[35px] h-[35px] rounded-full border-blue-500 animate-spin;
   }
+  .line-seperate {
+    @apply w-full h-[2px] bg-gray-400 opacity-50 mb-3;
+  }
+  .input-styles {
+    @apply p-3 outline-none rounded-md border w-full bg-transparent border-gray-500 focus:border-blue-400;
+  }
 }
 
 /* Other classes */
+.toast-sonner {
+  font-size: 20px;
+}
+
+.dashboard-background {
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-image: linear-gradient(
+      to right,
+      rgba(0, 0, 0, 0.8),
+      rgba(0, 0, 0, 0.1)
+    ),
+    url("/dashboard.gif");
+}
+
 .custom-scrollbar::-webkit-scrollbar {
   @apply w-[5px];
 }
@@ -46,6 +68,7 @@
   position: absolute;
   width: 1px;
   white-space: nowrap;
+  cursor: pointer;
 }
 
 .banner-background {
@@ -55,7 +78,7 @@
 }
 
 .text-linear {
-  @apply bg-secondaryGradient;
+  @apply bg-cyanLinear;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
