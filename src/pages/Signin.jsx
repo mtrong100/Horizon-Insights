@@ -56,10 +56,10 @@ const Signin = () => {
   };
 
   return (
-    <section className="flex items-center justify-center h-screen">
+    <section className="flex items-center justify-center h-screen bg-secondaryColor">
       <form
         onSubmit={handleSubmit(onSubmit)}
-        className="w-full max-w-lg border border-borderColor p-5 rounded-xl"
+        className="w-full max-w-lg border border-borderColor p-5 rounded-xl bg-mainBackground"
       >
         <h1 className="text-4xl text-center font-bold">Horizon Insights</h1>
 
