@@ -117,13 +117,13 @@ const EditBlog = () => {
       <div className="grid grid-cols-2 gap-5 mt-4 relative">
         <form
           onSubmit={handleSubmit(onSubmit)}
-          className=" bg-whiteSoft p-5 rounded-xl flex flex-col gap-5 border border-gray-300"
+          className=" bg-secondaryColor p-5 rounded-xl flex flex-col gap-5 "
         >
           <section className="w-full flex flex-col gap-2">
             <Label htmlFor="thumbnail">Thumbnail</Label>
 
             {progress === 0 && !thumbnail && (
-              <div className="border border-gray-500 flex flex-col gap-5 hover:bg-slate-100 cursor-pointer items-center justify-center h-[250px] w-full rounded-xl">
+              <div className="border border-borderColor flex flex-col gap-5 hover:bg-mainBackground cursor-pointer items-center justify-center h-[250px] w-full rounded-xl">
                 <MdOutlineUploadFile size={50} className="opacity-50" />
                 <input
                   type="file"
@@ -134,7 +134,7 @@ const EditBlog = () => {
             )}
 
             {progress !== 0 && !thumbnail && (
-              <div className="border border-gray-500 flex  gap-5 hover:bg-slate-100 cursor-pointer items-center justify-center h-[250px] w-full rounded-xl">
+              <div className="h-[250px] w-full ">
                 <div className="loading-circle"></div>
               </div>
             )}
@@ -147,7 +147,7 @@ const EditBlog = () => {
                   className="img-cover rounded-xl"
                 />
 
-                <div className="absolute top-2/4 left-2/4 -translate-x-2/4 -translate-y-2/4 w-[60px] h-[60px] rounded-full text-white flex items-center justify-center  bg-black cursor-pointer hover:opacity-50 border border-slate-700">
+                <div className="absolute top-2/4 left-2/4 -translate-x-2/4 -translate-y-2/4 w-[60px] h-[60px] rounded-full text-white flex items-center justify-center  bg-black cursor-pointer hover:opacity-90 border border-slate-700">
                   <input
                     id="upload"
                     type="file"
@@ -213,7 +213,7 @@ const EditBlog = () => {
 
         {/* Preview */}
         <section className="sticky top-5 h-screen overflow-y-auto custom-scrollbar">
-          <h1 className="text-3xl mb-2 font-bold text-gray-800 leading-normal ml-2">
+          <h1 className="text-3xl mb-2 font-bold leading-normal ml-2">
             Preview content
           </h1>
 
@@ -224,7 +224,7 @@ const EditBlog = () => {
           )}
 
           {content && (
-            <div className="bg-whiteSoft p-5 rounded-xl border border-gray-300 blog-content">
+            <div className="bg-secondaryColor p-5 rounded-xl  blog-content">
               {HTMLReactParser(content)}
             </div>
           )}
