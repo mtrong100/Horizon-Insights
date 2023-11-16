@@ -7,7 +7,7 @@ const Sidebar = () => {
 
   return (
     <aside className="sticky top-0 left-0 w-[280px] h-screen bg-secondaryColor p-4">
-      <Link to={"/"} className="font-bold text-2xl text-center text-linear">
+      <Link to={"/"} className="font-bold text-2xl text-center ">
         Horizon Insights
       </Link>
       <ul className="flex flex-col mt-5 gap-1">
