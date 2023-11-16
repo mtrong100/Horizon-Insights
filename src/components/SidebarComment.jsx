@@ -101,11 +101,11 @@ const SidebarComment = ({ blogId }) => {
     <section
       className={`${
         sidebarOpen ? "translate-x-0 opacity-100" : "translate-x-full opacity-0"
-      } w-[500px] bg-whiteSoft shadow-lg h-full fixed top-0 right-0 bottom-0 z-[999] transition-all duration-300`}
+      } w-[500px] bg-whiteSoft dark:bg-secondaryColor shadow-lg h-full fixed top-0 right-0 bottom-0 z-[999] transition-all duration-300`}
     >
       <div className="flex flex-col h-full px-5 ">
         <div className="flex items-center justify-between">
-          <HeadingTitle className="text-slate-700 ">
+          <HeadingTitle className="">
             Comments ({data?.comments?.length || 0})
           </HeadingTitle>
 
@@ -134,13 +134,13 @@ const SidebarComment = ({ blogId }) => {
             ))}
         </main>
 
-        <section className="w-full  bg-slate-50 py-3 gap-2 ">
+        <section className="w-full  py-3 gap-2 ">
           {isLoading ? (
             <div className="flex items-center gap-2 text-xl justify-center opacity-60 font-semibold animate-bounce">
               <p>
                 {isUpdate ? "Updating comment..." : "Submitting comment..."}
               </p>
-              <div className="border-2 border-t-2 border-t-transparent w-[20px] h-[20px] rounded-full border-gray-500 animate-spin"></div>
+              <div className="border-2 border-t-2 border-t-transparent w-[20px] h-[20px] rounded-full border-borderColor animate-spin"></div>
             </div>
           ) : (
             <InputEmoji

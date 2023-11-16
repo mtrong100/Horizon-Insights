@@ -19,20 +19,20 @@ const FeatureBlog = ({ data, currentUser }) => {
         />
       </div>
 
-      <div className="flex flex-col flex-1 bg-gray-100 py-3 px-5 gap-2 h-[400px] rounded-md">
+      <div className="flex flex-col flex-1 bg-secondaryColor py-3 px-5 gap-2 h-[400px] rounded-md">
         <div className="flex items-center justify-between">
-          <span className="capitalize font-bold text-sm bg-blue-500 bg-opacity-20 text-indigo-500 w-fit px-5 py-2 rounded-full ">
+          <span className="capitalize font-bold text-sm bg-forcegroundColor bg-opacity-20 text-textColor w-fit px-5 py-2 rounded-full ">
             {data?.category}
           </span>
           <BlogType category={data?.type} />
         </div>
         <Link
           to={`/${data?.slug}`}
-          className="font-bold text-slate-900 text-4xl leading-tight  hover:underline cursor-pointer line-clamp-2"
+          className="font-bold text-4xl leading-tight  hover:underline cursor-pointer line-clamp-2"
         >
           {data?.title}
         </Link>
-        <p className="text-slate-700 ">{data?.description}</p>
+        <p>{data?.description}</p>
 
         {/* Author */}
         <section className="flex items-center justify-between">
@@ -43,7 +43,7 @@ const FeatureBlog = ({ data, currentUser }) => {
               className="object-cover w-[50px] h-[50px] rounded-full flex-shrink-0"
             />
             <div>
-              <h3 className="font-bold text-slate-700 ">{user?.username}</h3>
+              <h3 className="font-bold ">{user?.username}</h3>
               <p className="text-sm font-medium">
                 {formateDate(data?.createdAt)}
               </p>
@@ -64,7 +64,7 @@ export const FeatureBlogSkeleton = () => {
     <article className="flex items-start justify-between gap-2 h-[400px] ">
       <Skeleton className="w-full flex-1 h-[400px] rounded-xl" />
 
-      <div className="flex flex-col flex-1 bg-gray-100 py-3 px-5 gap-2 h-[400px] rounded-md">
+      <div className="flex flex-col flex-1 bg-secondaryColor py-3 px-5 gap-2 h-[400px] rounded-md">
         <div className="flex flex-col gap-2">
           <Skeleton className="w-full h-[50px] rounded-md" />
           <Skeleton className="w-[400px] h-[50px] rounded-md" />

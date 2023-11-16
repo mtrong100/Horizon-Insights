@@ -22,27 +22,22 @@ const Dashboard = () => {
   return (
     <section className="flex flex-col">
       {/* Card section */}
-      <section className="grid grid-cols-3 gap-5 mb-10">
+      <section className="grid grid-cols-3 gap-5 mb-5">
         <CardUserInfo currentUser={currentUser} isOpenModal={handleToggle} />
         <div className="col-span-2 dashboard-background rounded-xl shadow-md"></div>
       </section>
 
       <div className="line-seperate"></div>
 
-      <section className="bg-whiteSoft rounded-xl p-5">
+      <section className="bg-secondaryColor rounded-xl p-5">
         <div className="flex items-center gap-4 mb-5">
           {tabs.map((item) => (
-            <button
-              onClick={() => setSelected(item)}
+            <TabItem
               key={item}
-              className={`${
-                selected === item
-                  ? "bg-indigo-500 text-white"
-                  : "border-indigo-500 text-indigo-500 hover:bg-indigo-50"
-              } font-semibold border transition-all cursor-pointer rounded-full  px-5 py-2 `}
-            >
-              {item}
-            </button>
+              setSelected={setSelected}
+              item={item}
+              selected={selected}
+            />
           ))}
         </div>
 
@@ -61,7 +56,9 @@ const Dashboard = () => {
           {!isLoading &&
             blogs &&
             blogs.length > 0 &&
-            blogs.map((blog) => <Blog key={blog.id} data={blog} />)}
+            blogs.map((blog) => (
+              <Blog className="bg-mainBackground" key={blog.id} data={blog} />
+            ))}
         </ul>
       </section>
 
@@ -78,3 +75,19 @@ const Dashboard = () => {
 };
 
 export default Dashboard;
+
+function TabItem({ setSelected, item, selected }) {
+  return (
+    <button
+      onClick={() => setSelected(item)}
+      key={item}
+      className={`${
+        selected === item
+          ? "bg-buttonColor text-buttonText hover:opacity-90 border-transparent"
+          : "border-borderColor text-textColor hover:bg-hoverForeground"
+      } font-semibold border transition-all cursor-pointer rounded-full px-5 py-2 `}
+    >
+      {item}
+    </button>
+  );
+}

@@ -27,10 +27,7 @@ const FieldTextarea = ({
         {...register(name)}
         id={name}
         name={name}
-        className={twMerge(
-          ` p-3 outline-none rounded-md border w-full resize-none min-h-[150px] bg-transparent  focus:border-blue-400`,
-          className
-        )}
+        className={twMerge(`input-styles h-[150px] resize-none`, className)}
         placeholder={placeholder}
         onInput={handleInput}
       />

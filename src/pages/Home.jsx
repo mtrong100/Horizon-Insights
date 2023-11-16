@@ -10,6 +10,7 @@ import slugify from "slugify";
 import HeadingTitle from "../components/HeadingTitle";
 import { useDispatch } from "react-redux";
 import { setSidebarOpen } from "../redux/slices/globalSlice";
+import Tab from "../components/Tab";
 
 const Home = () => {
   const { currentUser } = useAuth();
@@ -56,13 +57,9 @@ const Home = () => {
               const categorySlug = slugify(item, { lower: true });
 
               return (
-                <Link
-                  to={`/category/${categorySlug}`}
-                  className="font-semibold capitalize border-indigo-500 border hover:bg-indigo-500 transition-all cursor-pointer rounded-full text-indigo-500 px-5 py-2 hover:text-white"
-                  key={item}
-                >
+                <Tab key={item} link={`/category/${categorySlug}`}>
                   {item}
-                </Link>
+                </Tab>
               );
             })}
         </ul>

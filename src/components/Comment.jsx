@@ -60,7 +60,7 @@ const Comment = ({ data, setData = () => {} }) => {
           />
         </div>
 
-        <div className="py-2 px-4 bg-gray-200 rounded-2xl">
+        <div className="py-2 px-4 bg-gray-200 dark:bg-mainBackground rounded-2xl">
           <div className="flex items-center gap-1 text-lg">
             <h1 className="font-semibold ">{user?.username}</h1>
             <div className="font-bold">.</div>
@@ -74,7 +74,7 @@ const Comment = ({ data, setData = () => {} }) => {
               </p>
             )}
           </div>
-          <p className="text-slate-900 font-normal text-lg">{data?.comment}</p>
+          <p className="font-normal text-lg">{data?.comment}</p>
         </div>
       </div>
 

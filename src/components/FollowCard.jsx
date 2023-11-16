@@ -40,7 +40,7 @@ const FollowCard = () => {
   const users = data.filter((item) => item.id !== currentUser?.id);
 
   return (
-    <div className="p-5 rounded-lg bg-white">
+    <div className="p-5 rounded-lg bg-secondaryColor">
       <h1 className="text-3xl font-bold text-linear leading-normal">
         Recommended Users
       </h1>
@@ -54,13 +54,7 @@ const FollowCard = () => {
         {!isLoading &&
           users &&
           users.length > 0 &&
-          users.map((item) => (
-            <UserItem
-              key={item.id}
-              data={item}
-              currentUserId={currentUser?.id}
-            />
-          ))}
+          users.map((item) => <UserItem key={item.id} data={item} />)}
       </ul>
     </div>
   );
@@ -68,7 +62,7 @@ const FollowCard = () => {
 
 export default FollowCard;
 
-function UserItem({ data, currentUserId }) {
+function UserItem({ data }) {
   return (
     <li className="flex items-center justify-between">
       <div className="flex items-center gap-4">

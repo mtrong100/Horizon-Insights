@@ -3,6 +3,7 @@ import { menuLinks } from "../../utils/constant";
 import { Link, useLocation } from "react-router-dom";
 import { useAuth } from "../../context/AuthContext";
 import MenuDropdown from "../MenuDropdown";
+import ThemeButton from "../buttons/ThemeButton";
 
 const Header = () => {
   const { currentUser } = useAuth();
@@ -11,9 +12,12 @@ const Header = () => {
   return (
     <header className="p-4">
       <div className="page-container flex items-center justify-between">
-        <Link to={"/"} className="text-2xl font-bold text-blue-500">
-          Horizon Insights
-        </Link>
+        <div className="flex items-center gap-5">
+          <Link to={"/"} className="text-2xl font-bold text-textColor">
+            Horizon Insights
+          </Link>
+          <ThemeButton />
+        </div>
 
         <ul className="flex items-center gap-5">
           {menuLinks.map((item) => {
@@ -23,9 +27,9 @@ const Header = () => {
               <Link
                 className={`${
                   isActive
-                    ? "text-blue-500 font-semibold"
-                    : "hover:text-blue-500 text-slate-700 font-medium"
-                } text-xl`}
+                    ? "text-activeColor font-semibold"
+                    : " font-medium text-textColor"
+                } text-xl `}
                 key={item.name}
                 to={item.link}
               >

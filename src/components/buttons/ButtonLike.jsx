@@ -52,8 +52,8 @@ const ButtonLike = ({ blogId }) => {
           className={`${
             isLoading
               ? "opacity-50 cursor-not-allowed"
-              : "cursor-pointer hover:bg-blue-600"
-          } flex items-center justify-center w-[50px] h-[50px] bg-blue-500 text-white  shadow-sm rounded-full`}
+              : "cursor-pointer hover:opacity-90"
+          } active-button`}
         >
           <BiSolidLike size={25} />
         </button>
@@ -64,8 +64,8 @@ const ButtonLike = ({ blogId }) => {
           className={`${
             isLoading
               ? "opacity-50 cursor-not-allowed"
-              : "cursor-pointer hover:bg-gray-200"
-          } flex items-center justify-center w-[50px] h-[50px] bg-gray-100 border border-slate-500 shadow-sm rounded-full`}
+              : "cursor-pointer hover:bg-gray-300 dark:hover:opacity-80"
+          } non-active-button`}
         >
           <BiLike size={25} />
         </button>

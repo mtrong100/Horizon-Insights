@@ -8,6 +8,17 @@ module.exports = {
     },
     extend: {
       colors: {
+        mainBackground: "rgb(var(--main-background))",
+        textColor: "rgb(var(--text-color))",
+        activeColor: "rgb(var(--active-color))",
+        borderColor: "rgb(var(--border-color))",
+        forcegroundColor: "rgb(var(--main-forceground))",
+        hoverForeground: "rgba(var(--hover-forceground), 0.3)",
+        secondaryColor: "rgba(var(--secondary-color))",
+        buttonColor: "rgba(var(--button-color))",
+        buttonText: "rgba(var(--button-text))",
+        colorGray: "rgba(var(--color-gray))",
+
         /* Dark-theme */
         primaryDark: "#13131A",
         secondaryDark: "#1b1b1d",

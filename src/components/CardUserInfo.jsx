@@ -1,9 +1,11 @@
 import React from "react";
 import { formateDate } from "../utils/helper";
+import Button from "./buttons/Button";
+import ThemeButton from "./buttons/ThemeButton";
 
 const CardUserInfo = ({ currentUser, isOpenModal = () => {} }) => {
   return (
-    <section className="h-[230px] bg-whiteSoft rounded-xl w-full shadow-md p-5">
+    <section className="h-[230px] bg-secondaryColor rounded-xl w-full shadow-md p-5">
       <div className="flex items-center gap-3 cursor-pointer">
         <img
           src={currentUser?.avatar}
@@ -11,20 +13,17 @@ const CardUserInfo = ({ currentUser, isOpenModal = () => {} }) => {
           className="object-cover w-[80px] h-[80px] rounded-full"
         />
         <div>
-          <h3 className="font-bold text-slate-700 text-lg mb-2">
-            {currentUser?.username}
-          </h3>
-          <div className="text-sm py-1 px-3 font-medium bg-gray-200 rounded-lg">
+          <h3 className="font-bold text-lg mb-2">{currentUser?.username}</h3>
+          <div className="text-sm py-1 px-3 font-medium bg-mainBackground rounded-lg">
             {currentUser?.id}
           </div>
         </div>
+        <ThemeButton />
       </div>
 
       <div className="my-3 font-semibold opacity-80">
         <span>Contact: {currentUser?.email}</span>
-        <p className="text-blue-700">
-          Joined {formateDate(currentUser?.createdAt)}
-        </p>
+        <p>Joined {formateDate(currentUser?.createdAt)}</p>
       </div>
 
       <div className="flex items-center justify-between ">
@@ -36,12 +35,10 @@ const CardUserInfo = ({ currentUser, isOpenModal = () => {} }) => {
             {currentUser?.followers?.length} Followers
           </span>
         </div>
-        <button
-          onClick={isOpenModal}
-          className="border border-blue-500 text-sm hover:bg-blue-500 hover:text-white text-blue-500 py-2 px-4 rounded-lg font-medium"
-        >
+
+        <Button onClick={isOpenModal} className="w-fit py-2 px-4">
           Edit profile
-        </button>
+        </Button>
       </div>
     </section>
   );

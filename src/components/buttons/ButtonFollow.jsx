@@ -68,7 +68,7 @@ const ButtonFollow = ({ userId }) => {
       {currentUser?.following?.some((item) => item === userId) ? (
         <button
           onClick={handleFollowUser}
-          className={`py-2 px-4 border font-medium rounded-full border-indigo-500 text-indigo-500 hover:bg-indigo-100 ${
+          className={`py-2 px-4 border font-medium rounded-full border-activeColor text-buttonColor hover:bg-hoverForeground hover:opacity-90 ${
             isLoading ? "opacity-50 cursor-not-allowed" : ""
           }`}
           disabled={isLoading}
@@ -78,7 +78,7 @@ const ButtonFollow = ({ userId }) => {
       ) : (
         <button
           onClick={handleFollowUser}
-          className={`py-2 px-4 border font-medium rounded-full bg-indigo-500 text-white border-transparent hover:bg-indigo-600 ${
+          className={`py-2 px-4 border font-medium rounded-full bg-buttonColor border-transparent text-buttonText hover:opacity-90  ${
             isLoading ? "opacity-50 cursor-not-allowed" : ""
           }`}
           disabled={isLoading}

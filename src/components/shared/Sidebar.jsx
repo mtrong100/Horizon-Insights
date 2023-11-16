@@ -6,7 +6,7 @@ const Sidebar = () => {
   const location = useLocation();
 
   return (
-    <aside className="sticky top-0 left-0 w-[280px] h-screen bg-whiteSoft p-4">
+    <aside className="sticky top-0 left-0 w-[280px] h-screen bg-secondaryColor p-4">
       <Link to={"/"} className="font-bold text-2xl text-center text-linear">
         Horizon Insights
       </Link>
@@ -20,9 +20,9 @@ const Sidebar = () => {
               key={item.name}
               className={`${
                 isActive
-                  ? "opacity-100 font-semibold bg-gray-200"
-                  : "font-medium opacity-90 hover:bg-gray-200"
-              } h-[50px]  text-lg text-slate-800  px-5 rounded-md cursor-pointer flex items-center gap-3 `}
+                  ? "opacity-100 font-semibold bg-buttonColor text-buttonText"
+                  : "non-active-link"
+              } h-[50px] text-lg px-5 rounded-md cursor-pointer flex items-center gap-3`}
             >
               <span className="text-xl">{item.icon}</span>
               <span>{item.name}</span>

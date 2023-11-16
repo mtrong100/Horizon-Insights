@@ -13,10 +13,7 @@ const ButtonComment = ({ blogId }) => {
   };
 
   return (
-    <span
-      onClick={handleClick}
-      className="flex items-center hover:bg-gray-200 justify-center border-slate-500 cursor-pointer w-[50px] h-[50px] bg-gray-100 border shadow-sm rounded-full"
-    >
+    <span onClick={handleClick} className="non-active-button">
       <BiComment size={25} />
     </span>
   );

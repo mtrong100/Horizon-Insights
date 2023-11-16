@@ -16,7 +16,7 @@ export default function Dropdown({
       <div className="relative mt-2">
         <Listbox.Button
           className={twMerge(
-            "relative w-full  pl-3 pr-10 text-left h-[56px] border-2 rounded-md cursor-pointer bg-gray-100 ",
+            "relative w-full  pl-3 pr-10 text-left h-[56px] border border-borderColor rounded-md cursor-pointer bg-mainBackground ",
             className
           )}
         >
@@ -33,7 +33,7 @@ export default function Dropdown({
         >
           <Listbox.Options
             className={twMerge(
-              "absolute z-20 w-full mt-1 hidden-scrollbar overflow-auto text-base rounded-md shadow-lg bg-background max-h-60 ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm bg-white",
+              "absolute z-20 w-full mt-1 hidden-scrollbar overflow-auto text-base rounded-md shadow-lg bg-background max-h-60 ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm bg-mainBackground",
               className
             )}
           >
@@ -42,7 +42,7 @@ export default function Dropdown({
                 key={index}
                 className={({ active }) =>
                   `relative  select-none py-4 pl-10 pr-4 capitalize cursor-pointer  ${
-                    active ? "hover:bg-blue-50" : "opacity-90 bg-white"
+                    active ? "hover:bg-hoverForeground" : "opacity-90 "
                   }`
                 }
                 value={item}

@@ -4,6 +4,7 @@ import { filterOption } from "../utils/constant";
 import BlogItem from "../modules/BlogItem";
 import { useAuth } from "../context/AuthContext";
 import useQueryCollection from "../hooks/useQueryCollection";
+import SearchBox from "../components/SearchBox";
 
 const ManageBlog = () => {
   const { currentUser } = useAuth();
@@ -28,7 +29,7 @@ const ManageBlog = () => {
   });
 
   return (
-    <section className="p-5 rounded-lg bg-whiteSoft">
+    <section className="p-5 rounded-lg bg-secondaryColor">
       {/* Header */}
       <div className="flex items-center justify-between">
         <h1 className="text-4xl font-bold text-linear leading-normal">
@@ -36,18 +37,12 @@ const ManageBlog = () => {
         </h1>
 
         <div className="flex items-center gap-2 w-full max-w-sm">
-          <input
-            type="text"
-            value={value}
-            onChange={handleChange}
-            placeholder="Search your blog..."
-            className="p-3 outline-none rounded-md border w-full bg-transparent border-gray-500 focus:border-blue-400"
-          />
+          <SearchBox value={value} onChange={handleChange} />
 
           <select
             onChange={(e) => setFilter(e.target.value)}
             id="cars"
-            className="border p-2 border-gray-500 rounded-md"
+            className="border bg-mainBackground p-2 border-borderColor rounded-md"
           >
             {filterOption.map((item) => (
               <option value={item.value} key={item.title}>
@@ -58,7 +53,7 @@ const ManageBlog = () => {
         </div>
       </div>
 
-      <div className="w-full h-[2px] bg-slate-200 my-5"></div>
+      <div className="w-full h-[2px] bg-borderColor my-5"></div>
 
       {/* Main */}
       <div className="mt-5 flex flex-col gap-5">

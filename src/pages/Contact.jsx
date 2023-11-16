@@ -12,18 +12,18 @@ const Contact = () => {
         <div className="flex flex-col gap-5 flex-1">
           <input
             type="text"
-            className="input-styles focus:bg-gray-50"
+            className="input-styles "
             placeholder="Enter your username"
           />
           <input
             type="text"
-            className="input-styles focus:bg-gray-50"
+            className="input-styles "
             placeholder="Enter your email"
           />
           <textarea
             cols="30"
             rows="10"
-            className="input-styles resize-none focus:bg-gray-50"
+            className="input-styles resize-none "
             placeholder="Write your thoughts..."
           ></textarea>
         </div>

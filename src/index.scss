@@ -2,12 +2,40 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Theme */
+@layer base {
+  :root {
+    --main-background: 250, 251, 255;
+    --text-color: 4, 30, 73;
+    --active-color: 11, 87, 208;
+    --border-color: 171, 181, 199;
+    --main-forceground: 168, 199, 250;
+    --hover-forceground: 168, 199, 250;
+    --secondary-color: 227, 236, 250;
+    --button-color: 11, 87, 208;
+    --button-text: 255, 255, 255;
+    --color-gray: 243, 244, 246;
+  }
+
+  :root.dark {
+    --main-background: 3, 21, 37;
+    --text-color: 211, 227, 253;
+    --active-color: 124, 172, 248;
+    --border-color: 138, 155, 178;
+    --main-forceground: 8, 66, 160;
+    --hover-forceground: 8, 66, 160;
+    --secondary-color: 16, 36, 58;
+    --button-color: 124, 172, 248;
+    --button-text: 4, 30, 73;
+  }
+}
+
 @layer base {
   html {
     @apply scroll-smooth;
   }
   body {
-    @apply bg-blue-50;
+    @apply bg-mainBackground text-textColor;
   }
 }
 
@@ -22,10 +50,28 @@
     @apply border-4 border-t-4 border-t-transparent w-[35px] h-[35px] rounded-full border-blue-500 animate-spin;
   }
   .line-seperate {
-    @apply w-full h-[2px] bg-gray-400 opacity-50 mb-3;
+    @apply w-full h-[2px] bg-borderColor opacity-50 mb-5;
   }
   .input-styles {
-    @apply p-3 outline-none rounded-md border w-full bg-transparent border-gray-500 focus:border-blue-400;
+    @apply p-3 outline-none rounded-md border-2 w-full bg-transparent border-borderColor focus:border-buttonColor;
+  }
+  .active-button {
+    @apply flex items-center justify-center w-[50px] h-[50px] bg-buttonColor text-buttonText shadow-sm rounded-full;
+  }
+  .non-active-button {
+    @apply flex items-center justify-center w-[50px] h-[50px] bg-colorGray dark:bg-transparent border border-borderColor shadow-sm rounded-full;
+  }
+  .icon-camera {
+    @apply w-[40px] h-[40px] absolute -bottom-2 right-5 rounded-full flex items-center justify-center bg-mainBackground  cursor-pointer hover:bg-forcegroundColor  border border-borderColor;
+  }
+  .edit-button {
+    @apply border border-green-500 text-center text-green-500 py-2 w-[100px] font-semibold hover:bg-green-100 rounded-full dark:bg-green-500 dark:text-white dark:hover:bg-green-600;
+  }
+  .delete-button {
+    @apply border border-red-500 text-red-500 py-2 w-[100px] font-semibold hover:bg-red-100 rounded-full dark:bg-red-500 dark:text-white dark:hover:bg-red-600;
+  }
+  .non-active-link {
+    @apply font-medium opacity-90 hover:bg-blue-200 dark:hover:bg-blue-100 text-slate-700 dark:text-gray-200 dark:hover:text-slate-700;
   }
 }
 
@@ -83,24 +129,49 @@
   -webkit-text-fill-color: transparent;
 }
 
+.jodit-dialog__panel {
+  @apply bg-secondaryColor text-textColor rounded-lg resize-none;
+}
+.jodit-dialog__footer {
+  @apply border-borderColor border-t;
+  button {
+    @apply bg-buttonColor text-buttonText;
+  }
+}
+
+.jodit-workplace {
+  color: #10243a !important;
+}
+
 .blog-content {
-  @apply text-gray-700;
+  :root {
+    --primary-color: #e3ecfa;
+    --text-color: #10243a;
+  }
+
+  :root.dark {
+    --primary-color: #10243a;
+    --text-color: #e3ecfa;
+  }
+
   h1 {
     @apply text-linear;
   }
-  h2,
-  h3,
-  h4 {
-    @apply text-gray-900;
-  }
+
+  p,
   h1,
   h2,
   h3,
   h4 {
-    font-weight: bold;
-    word-break: break-word;
-    line-height: 1.25;
-    margin-bottom: 15px;
+    background-color: var(--primary-color) !important;
+    color: var(--text-color) !important;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    @apply font-bold break-words leading-5 mb-4;
   }
   h1 {
     font-size: 33px !important;
@@ -146,7 +217,6 @@
     text-align: center;
     font-style: italic;
     font-size: 14px;
-    color: #6b6b6b;
   }
 
   @media screen and (max-width: 1023.98px) {

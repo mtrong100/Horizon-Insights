@@ -47,20 +47,21 @@ const Signin = () => {
         email: "",
       });
 
-      toast.success("Welcome to chat app!");
+      toast.success("Welcome to Horizon Blog!");
       navigate("/");
     } catch (error) {
       console.log(error);
-      toast.error(error.response?.data);
+      toast.error("This account is not exist!");
     }
   };
 
   return (
     <section className="flex items-center justify-center h-screen">
-      <form onSubmit={handleSubmit(onSubmit)} className="w-full max-w-md">
-        <h1 className="text-4xl text-center text-blue-600 font-bold">
-          Horizon Insights
-        </h1>
+      <form
+        onSubmit={handleSubmit(onSubmit)}
+        className="w-full max-w-lg border border-borderColor p-5 rounded-xl"
+      >
+        <h1 className="text-4xl text-center font-bold">Horizon Insights</h1>
 
         <div className="flex flex-col gap-5 mt-5">
           <section className="w-full flex flex-col gap-2">
@@ -84,7 +85,7 @@ const Signin = () => {
           </section>
           <div className="text-sm font-medium">
             Not have an account?{" "}
-            <Link className="hover:underline text-blue-500" to="/sign-up">
+            <Link className="hover:underline text-activeColor" to="/sign-up">
               Sign up
             </Link>
           </div>

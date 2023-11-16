@@ -6,8 +6,9 @@ import { Link, useNavigate } from "react-router-dom";
 import BlogType from "./BlogType";
 import ButtonFollow from "../components/buttons/ButtonFollow";
 import { useAuth } from "../context/AuthContext";
+import { twMerge } from "tailwind-merge";
 
-const Blog = ({ data }) => {
+const Blog = ({ data, className = "" }) => {
   const { currentUser } = useAuth();
   const navigate = useNavigate();
   const { data: user } = useQuerySnapshot("User", "id", data?.userId);
@@ -27,22 +28,25 @@ const Blog = ({ data }) => {
         />
       </div>
 
-      <div className="flex flex-col gap-2 bg-whiteSoft shadow-sm p-3 rounded-br-lg rounded-bl-lg">
+      <div
+        className={twMerge(
+          "flex flex-col gap-2 bg-secondaryColor shadow-sm p-3 rounded-br-lg rounded-bl-lg",
+          className
+        )}
+      >
         <div className="flex items-center justify-between">
-          <span className="capitalize font-bold text-sm bg-blue-500 bg-opacity-20 text-indigo-500 w-fit px-5 py-2 rounded-full ">
+          <span className="capitalize font-bold text-sm bg-forcegroundColor bg-opacity-20 text-textColor w-fit px-5 py-2 rounded-full ">
             {data?.category}
           </span>
           <BlogType category={data?.type} />
         </div>
         <h1
           onClick={handleClick}
-          className="font-bold text-slate-900 text-2xl line-clamp-2 leading-tight hover:underline cursor-pointer"
+          className="font-bold text-2xl line-clamp-2 leading-tight hover:underline cursor-pointer"
         >
           {data?.title}
         </h1>
-        <p className="text-slate-700 text-sm line-clamp-3">
-          {data?.description}
-        </p>
+        <p className=" text-sm line-clamp-3">{data?.description}</p>
 
         {/* Author */}
         <div className="flex items-center  mt-2 justify-between">
@@ -53,7 +57,7 @@ const Blog = ({ data }) => {
               className="object-cover w-[50px] h-[50px] rounded-full flex-shrink-0"
             />
             <div>
-              <h3 className="font-bold text-slate-700 ">{user?.username}</h3>
+              <h3 className="font-bold">{user?.username}</h3>
               <p className="text-sm font-medium">
                 {formateDate(data?.createdAt)}
               </p>
@@ -76,7 +80,7 @@ export const BlogSkeleton = () => {
     <article className="flex flex-col">
       <Skeleton className="h-[200px] rounded-lg" />
 
-      <div className="flex flex-col gap-2 bg-whiteSoft shadow-sm p-3 rounded-br-lg rounded-bl-lg">
+      <div className="flex flex-col gap-2 bg-secondaryColor shadow-sm p-3 rounded-br-lg rounded-bl-lg">
         <div className="flex flex-col gap-2">
           <Skeleton className="h-[30px] rounded-md" />
           <Skeleton className="h-[30px] rounded-md" />

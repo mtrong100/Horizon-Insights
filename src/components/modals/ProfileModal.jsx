@@ -78,31 +78,9 @@ const ProfileModal = ({ closeModal = () => {} }) => {
         {/* User Avatar */}
 
         <section>
-          {progress === 0 && !image && (
-            <div className="w-[150px] h-[150px] flex-shrink-0 relative">
-              <img
-                src={currentUser?.avatar}
-                alt="user-avatar"
-                className="img-cover rounded-full"
-              />
-
-              <div className="w-[40px] h-[40px] absolute -bottom-2 right-5 rounded-full flex items-center justify-center bg-whiteSoft  cursor-pointer hover:bg-gray-200 border border-slate-300">
-                <input
-                  onChange={handleSelectImage}
-                  type="file"
-                  id="upload"
-                  className="hidden-input"
-                />
-                <label htmlFor="upload" className="cursor-pointer">
-                  <FaCamera size={20} />
-                </label>
-              </div>
-            </div>
-          )}
-
           {progress !== 0 && !image && (
-            <div className=" flex gap-5 hover:bg-slate-100 cursor-pointer items-center h-[150px] justify-center w-full rounded-xl">
-              <div className="border-4 border-t-4 border-t-transparent w-[50px] h-[50px] rounded-full border-blue-500 animate-spin"></div>
+            <div className="h-[150px]">
+              <div className="border-4 border-t-4 border-t-transparent w-[50px] h-[50px] rounded-full border-buttonColor animate-spin"></div>
             </div>
           )}
 
@@ -114,7 +92,7 @@ const ProfileModal = ({ closeModal = () => {} }) => {
                 className="img-cover rounded-full"
               />
 
-              <div className="w-[40px] h-[40px] absolute -bottom-2 right-5 rounded-full flex items-center justify-center bg-whiteSoft  cursor-pointer hover:bg-gray-200 border border-slate-300">
+              <div className="icon-camera">
                 <input
                   onChange={handleSelectImage}
                   type="file"
@@ -122,7 +100,7 @@ const ProfileModal = ({ closeModal = () => {} }) => {
                   className="hidden-input"
                 />
                 <label htmlFor="upload" className="cursor-pointer">
-                  <FaCamera size={20} />
+                  <FaCamera size={18} />
                 </label>
               </div>
             </div>
@@ -131,10 +109,10 @@ const ProfileModal = ({ closeModal = () => {} }) => {
 
         <form onSubmit={handleSubmit(onSubmit)}>
           <section className="grid grid-cols-2 gap-2">
-            <div className="p-3 bg-gray-300 rounded-md font-medium opacity-70">
+            <div className="p-3 bg-mainBackground rounded-md font-medium opacity-70">
               crowbar0910@gmail.com
             </div>
-            <div className="p-3 bg-gray-300 rounded-md font-medium opacity-70">
+            <div className="p-3 bg-mainBackground rounded-md font-medium opacity-70">
               kZoIblIFffcmiISkMauo5KC4YE12
             </div>
             <FieldInput

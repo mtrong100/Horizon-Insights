@@ -22,7 +22,7 @@ const schema = yup.object().shape({
   username: yup
     .string()
     .min(2, "Username is too short")
-    .max(18, "Username is too long")
+    .max(18, "Username can not exceed 18 characters")
     .required("Username is required"),
   email: yup.string().email("Invalid email").required("Email is required"),
   password: yup
@@ -72,20 +72,21 @@ const Signup = () => {
         password: "",
         email: "",
       });
-      toast.success("Welcome to chat app!");
+      toast.success("Welcome to Horizon Blog!");
       navigate("/");
     } catch (error) {
       console.log(error);
-      toast.error(error.response?.data);
+      toast.error("This account is already exist!");
     }
   };
 
   return (
     <section className="flex items-center justify-center h-screen">
-      <form onSubmit={handleSubmit(onSubmit)} className="w-full max-w-md">
-        <h1 className="text-4xl text-center text-blue-600 font-bold ">
-          Horizon Insights
-        </h1>
+      <form
+        onSubmit={handleSubmit(onSubmit)}
+        className="w-full max-w-lg border border-borderColor p-5 rounded-xl"
+      >
+        <h1 className="text-4xl text-center  font-bold ">Horizon Insights</h1>
 
         <div className="flex flex-col gap-5 mt-8">
           <section className="w-full flex flex-col gap-2">
@@ -120,7 +121,7 @@ const Signup = () => {
 
           <div className="text-sm font-medium">
             Already have an account?{" "}
-            <Link className="hover:underline text-blue-500" to="/sign-in">
+            <Link className="hover:underline text-activeColor" to="/sign-in">
               Sign in
             </Link>
           </div>

@@ -21,10 +21,7 @@ const FieldInputPassword = ({
           name={name}
           type={togglePassword ? "text" : "password"}
           {...register(name)}
-          className={twMerge(
-            "p-3 outline-none rounded-md border w-full bg-transparent border-gray-500 focus:border-blue-400",
-            className
-          )}
+          className={twMerge("input-styles", className)}
           placeholder={placeholder}
         />
 

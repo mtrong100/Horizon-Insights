@@ -12,6 +12,7 @@ import ButtonLike from "../components/buttons/ButtonLike";
 import ButtonComment from "../components/buttons/ButtonComment";
 import ButtonShare from "../components/buttons/ButtonShare";
 import SidebarComment from "../components/SidebarComment";
+import Skeleton from "../components/Skeleton";
 
 const BlogDetail = () => {
   const { slug } = useParams();
@@ -28,7 +29,7 @@ const BlogDetail = () => {
     <React.Fragment>
       <section>
         {isLoading ? (
-          <div className="w-full h-[300px] bg-gray-300 animate-pulse rounded-xl"></div>
+          <Skeleton className="w-full h-[300px] rounded-xl" />
         ) : (
           <div className={`w-full h-[300px]`}>
             <img
@@ -45,7 +46,7 @@ const BlogDetail = () => {
           </p>
         )}
         {!isLoading && data && (
-          <div className="bg-whiteSoft p-5 rounded-xl border border-gray-300  mt-3">
+          <div className="bg-secondaryColor p-5 rounded-xl mt-3">
             <section className="flex items-center justify-between">
               <div className="flex items-center gap-5">
                 {/* Author */}
@@ -56,7 +57,7 @@ const BlogDetail = () => {
                     className="object-cover w-[100px] h-[100px] rounded-full"
                   />
                   <div>
-                    <h3 className="font-bold text-slate-700 text-lg">
+                    <h3 className="font-bold  text-lg">
                       Post by: {user?.username}
                     </h3>
                     <span className="font-semibold opacity-60 inline-block mt-1">
@@ -87,7 +88,7 @@ const BlogDetail = () => {
       <section className="flex flex-col gap-5 ">
         <FollowCard />
 
-        <div className="p-5 rounded-lg bg-white">
+        <div className="p-5 rounded-lg bg-secondaryColor">
           <h1 className="text-3xl font-bold text-linear leading-normal">
             Explore more
           </h1>

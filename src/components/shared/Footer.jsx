@@ -15,7 +15,7 @@ const socialIcons = [
 
 const Footer = () => {
   return (
-    <footer className="bg-gray-50">
+    <footer className="bg-secondaryColor">
       <div className="py-10 page-container">
         <div className="flex flex-col items-center justify-between md:flex-row ">
           <Link
@@ -29,7 +29,7 @@ const Footer = () => {
             {socialIcons.map((item, index) => (
               <span
                 key={index}
-                className="text-3xl cursor-pointer hover:text-blue-500 text-text_2"
+                className="text-3xl cursor-pointer hover:text-buttonColor text-text_2"
               >
                 {item}
               </span>

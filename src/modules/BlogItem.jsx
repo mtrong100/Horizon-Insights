@@ -7,6 +7,7 @@ import { deleteDoc, doc } from "firebase/firestore";
 import { db } from "../utils/firebase";
 import { toast } from "sonner";
 import { Link } from "react-router-dom";
+import Tab from "../components/Tab";
 
 const BlogItem = ({ data }) => {
   const { data: user } = useQuerySnapshot("User", "id", data?.userId);
@@ -46,27 +47,24 @@ const BlogItem = ({ data }) => {
         </div>
         <div className="flex flex-col gap-1">
           <div className="flex items-center gap-3">
-            <span className="capitalize font-bold text-sm bg-blue-500 bg-opacity-20 text-indigo-500 w-fit px-5 py-2 rounded-full ">
+            <span className="capitalize font-bold text-sm bg-forcegroundColor bg-opacity-20 text-textColor w-fit px-5 py-2 rounded-full ">
               {data?.category}
             </span>
             <BlogType category={data?.type} />
           </div>
-          <h1 className="text-xl font-semibold text-gray-600">{data?.title}</h1>
-          <span className="font-semibold opacity-50">By: {user?.username}</span>
+          <h1 className="text-xl font-semibold ">{data?.title}</h1>
+          <span className="font-semibold opacity-80">By: {user?.username}</span>
           <span className="font-medium">{formateDate(data?.createdAt)}</span>
         </div>
       </div>
 
       <div className="flex flex-col gap-2">
-        <Link
-          to={`/edit-blog/${data?.id}`}
-          className="border border-green-500 text-center text-green-500 py-2 w-[100px] font-semibold hover:bg-green-100 rounded-full"
-        >
+        <Link to={`/edit-blog/${data?.id}`} className="edit-button">
           Edit
         </Link>
         <button
           onClick={() => handleDeleteBlog(data?.id)}
-          className="border border-red-500 text-red-500 py-2 w-[100px] font-semibold hover:bg-red-100 rounded-full"
+          className="delete-button"
         >
           Delete
         </button>

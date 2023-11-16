@@ -10,10 +10,7 @@ const ButtonShare = ({ slug }) => {
   };
 
   return (
-    <button
-      onClick={() => handleCopyLink(slug)}
-      className="flex items-center justify-center hover:bg-gray-200 cursor-pointer  border-slate-500 w-[50px] h-[50px] bg-gray-100 border shadow-sm rounded-full"
-    >
+    <button onClick={() => handleCopyLink(slug)} className="non-active-button">
       <BsLink45Deg size={25} />
     </button>
   );

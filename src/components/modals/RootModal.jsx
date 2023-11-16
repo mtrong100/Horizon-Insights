@@ -38,13 +38,13 @@ export default function RootModal({
             >
               <Dialog.Panel
                 className={twMerge(
-                  "w-full max-w-md p-5 overflow-hidden text-left transition-all transform bg-whiteSoft text-slate-700 shadow-xl rounded-md",
+                  "w-full max-w-md p-5 overflow-hidden text-left transition-all transform bg-secondaryColor shadow-xl rounded-md",
                   className
                 )}
               >
                 <section className="flex items-center justify-between">
                   <h1 className="text-2xl font-semibold leading-6">{title}</h1>
-                  <span className="w-[30px] h-[30px] rounded-full flex items-center justify-center bg-slate-700 text-white cursor-pointer hover:bg-opacity-80">
+                  <span className="w-[30px] h-[30px] rounded-full flex items-center justify-center dark:bg-slate-700 bg-gray-300  cursor-pointer hover:bg-opacity-80">
                     <IoClose onClick={onClose} size={22} />
                   </span>
                 </section>
