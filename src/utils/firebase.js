@@ -3,13 +3,13 @@ import { getFirestore } from "firebase/firestore";
 import { getAuth } from "firebase/auth";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyBNiQswN0bb83LXmrcxB6akBQ3MEW1JSgY",
-  authDomain: "money-blogging-b127b.firebaseapp.com",
-  projectId: "money-blogging-b127b",
-  storageBucket: "money-blogging-b127b.appspot.com",
-  messagingSenderId: "189108176756",
-  appId: "1:189108176756:web:b0cbd0102b715a08880e21",
-  measurementId: "G-6MLXW405SR",
+  apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
+  authDomain: import.meta.env.VITE_FIREBASE_AUTH_DOMAIN,
+  projectId: import.meta.env.VITE_FIREBASE_PROJECT_ID,
+  storageBucket: import.meta.env.VITE_FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: import.meta.env.VITE_FIREBASE_MESSAGE_SENDER_ID,
+  appId: import.meta.env.VITE_FIREBASE_APP_ID,
+  measurementId: import.meta.env.VITE_FIREBASE_MEASUREMENT_ID,
 };
 
 // Initialize Firebase

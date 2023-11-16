@@ -94,4 +94,4 @@ export const filterOption = [
 
 export const typeBlogs = ["Normal", "Feature", "Hot"];
 export const tabs = ["Blog", "Favorite"];
-export const BASE_URL = "https://blog-app-horizon.vercel.app";
+export const BASE_URL = import.meta.env.VITE_BASE_URL;

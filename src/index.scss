@@ -104,6 +104,22 @@
   @apply bg-slate-500;
 }
 
+.scrollbar-tab::-webkit-scrollbar {
+  @apply h-[8px];
+}
+
+.scrollbar-tab::-webkit-scrollbar-track {
+  @apply rounded-xl bg-gray-300 dark:bg-blue-900;
+}
+
+.scrollbar-tab::-webkit-scrollbar-thumb {
+  @apply bg-activeColor rounded-lg;
+}
+
+.scrollbar-tab::-webkit-scrollbar-thumb:hover {
+  @apply opacity-80;
+}
+
 .hidden-input {
   border: 0;
   clip: rect(0 0 0 0);
@@ -129,9 +145,11 @@
   -webkit-text-fill-color: transparent;
 }
 
+/* Jodit Lib */
 .jodit-dialog__panel {
   @apply bg-secondaryColor text-textColor rounded-lg resize-none;
 }
+
 .jodit-dialog__footer {
   @apply border-borderColor border-t;
   button {
@@ -139,10 +157,13 @@
   }
 }
 
-.jodit-workplace {
-  color: #10243a !important;
+.jodit-react-container {
+  .jodit-workplace {
+    color: #10243a !important;
+  }
 }
 
+/* Blog format content */
 .blog-content {
   :root {
     --primary-color: #e3ecfa;
@@ -171,7 +192,7 @@
   h2,
   h3,
   h4 {
-    @apply font-bold break-words leading-5 mb-4;
+    @apply font-bold break-words leading-normal mb-4;
   }
   h1 {
     font-size: 33px !important;

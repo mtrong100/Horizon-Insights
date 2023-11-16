@@ -38,7 +38,7 @@ export default function RootModal({
             >
               <Dialog.Panel
                 className={twMerge(
-                  "w-full max-w-md p-5 overflow-hidden text-left transition-all transform bg-secondaryColor shadow-xl rounded-md",
+                  "w-full max-w-md p-5 overflow-hidden text-left transition-all transform bg-mainBackground dark:bg-secondaryColor dark:border-slate-700 dark:border-2 shadow-xl rounded-md",
                   className
                 )}
               >

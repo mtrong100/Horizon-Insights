@@ -127,7 +127,7 @@ const CreateBlog = () => {
       <div className="grid grid-cols-2 gap-5 mt-4 relative">
         <form
           onSubmit={handleSubmit(onSubmit)}
-          className=" bg-secondaryColor p-5 rounded-xl flex flex-col gap-5 "
+          className=" bg-mainBackground dark:bg-secondaryColor shadow-md p-5 rounded-xl flex flex-col gap-5 "
         >
           <section className="w-full flex flex-col gap-2">
             <Label htmlFor="thumbnail">Thumbnail</Label>
@@ -222,7 +222,7 @@ const CreateBlog = () => {
           )}
 
           {content && (
-            <div className="bg-secondaryColor p-5 rounded-xl  blog-content">
+            <div className="bg-mainBackground dark:bg-secondaryColor shadow-md p-5 rounded-xl  blog-content">
               {HTMLReactParser(content)}
             </div>
           )}

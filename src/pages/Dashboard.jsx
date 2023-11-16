@@ -29,7 +29,7 @@ const Dashboard = () => {
 
       <div className="line-seperate"></div>
 
-      <section className="bg-secondaryColor rounded-xl p-5">
+      <section className="bg-mainBackground rounded-xl p-5">
         <div className="flex items-center gap-4 mb-5">
           {tabs.map((item) => (
             <TabItem
@@ -56,9 +56,7 @@ const Dashboard = () => {
           {!isLoading &&
             blogs &&
             blogs.length > 0 &&
-            blogs.map((blog) => (
-              <Blog className="bg-mainBackground" key={blog.id} data={blog} />
-            ))}
+            blogs.map((blog) => <Blog key={blog.id} data={blog} />)}
         </ul>
       </section>
 

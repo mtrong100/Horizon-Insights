@@ -5,7 +5,7 @@ import Blog, { BlogSkeleton } from "../modules/Blog";
 import { useAuth } from "../context/AuthContext";
 import useFetchCollection from "../hooks/useFetchCollection";
 import useFetchBlogType from "../hooks/useFetchBlogType";
-import { Link, useLocation } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import slugify from "slugify";
 import HeadingTitle from "../components/HeadingTitle";
 import { useDispatch } from "react-redux";
@@ -51,7 +51,7 @@ const Home = () => {
       {/* Category */}
       <section className="py-5">
         <HeadingTitle>Exlpore Categories</HeadingTitle>
-        <ul className="flex items-center gap-5 mt-3">
+        <ul className="flex items-center gap-5 mt-3 w-full overflow-x-auto scrollbar-tab pb-3">
           {categories.length > 0 &&
             categories.map((item) => {
               const categorySlug = slugify(item, { lower: true });
