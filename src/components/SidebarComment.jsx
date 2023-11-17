@@ -101,7 +101,7 @@ const SidebarComment = ({ blogId }) => {
     <section
       className={`${
         sidebarOpen ? "translate-x-0 opacity-100" : "translate-x-full opacity-0"
-      } w-[500px] bg-whiteSoft dark:bg-secondaryColor shadow-lg h-full fixed top-0 right-0 bottom-0 z-[999] transition-all duration-300`}
+      } w-[500px] bg-white dark:bg-secondaryColor shadow-lg h-full fixed top-0 right-0 bottom-0 z-[999] transition-all duration-300`}
     >
       <div className="flex flex-col h-full px-5 ">
         <div className="flex items-center justify-between">
@@ -149,7 +149,6 @@ const SidebarComment = ({ blogId }) => {
               cleanOnEnter
               borderColor="#171725"
               shouldReturn
-              inputClass="p-4"
               borderRadius={8}
               keepOpened
               theme="light"

@@ -59,7 +59,7 @@
     @apply flex items-center justify-center w-[50px] h-[50px] bg-buttonColor text-buttonText shadow-sm rounded-full;
   }
   .non-active-button {
-    @apply flex items-center justify-center w-[50px] h-[50px] bg-colorGray dark:bg-transparent border border-borderColor shadow-sm rounded-full;
+    @apply flex items-center justify-center w-[50px] h-[50px] bg-colorGray dark:bg-transparent border border-borderColor shadow-sm rounded-full cursor-pointer hover:bg-gray-200 dark:hover:bg-hoverForeground;
   }
   .icon-camera {
     @apply w-[40px] h-[40px] absolute -bottom-2 right-5 rounded-full flex items-center justify-center bg-mainBackground  cursor-pointer hover:bg-forcegroundColor  border border-borderColor;
@@ -92,6 +92,7 @@
     url("/dashboard.gif");
 }
 
+/* ====> Custom scrollbar */
 .custom-scrollbar::-webkit-scrollbar {
   @apply w-[5px];
 }
@@ -120,6 +121,11 @@
   @apply opacity-80;
 }
 
+/* ===> Custom react-emoji */
+.react-input-emoji--wrapper {
+  padding: 5px;
+}
+
 .hidden-input {
   border: 0;
   clip: rect(0 0 0 0);
@@ -145,7 +151,7 @@
   -webkit-text-fill-color: transparent;
 }
 
-/* Jodit Lib */
+/* ====> Custom jodit */
 .jodit-dialog__panel {
   @apply bg-secondaryColor text-textColor rounded-lg resize-none;
 }
