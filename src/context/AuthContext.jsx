@@ -29,7 +29,7 @@ const AuthProvider = ({ children }) => {
           }
         });
       } else {
-        navigate("sign-in");
+        navigate("/sign-in");
       }
     });
 
