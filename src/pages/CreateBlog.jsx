@@ -124,7 +124,7 @@ const CreateBlog = () => {
         Create New Blog
       </h1>
 
-      <div className="grid grid-cols-2 gap-5 mt-4 relative">
+      <div className="grid xl:grid-cols-2 gap-5 mt-4 relative">
         <form
           onSubmit={handleSubmit(onSubmit)}
           className=" bg-mainBackground dark:bg-secondaryColor shadow-md p-5 rounded-xl flex flex-col gap-5 "
@@ -210,7 +210,7 @@ const CreateBlog = () => {
         </form>
 
         {/* Preview */}
-        <section className="sticky top-5 h-screen overflow-y-auto custom-scrollbar">
+        <section className="sticky top-5 xl:block hidden h-screen overflow-y-auto custom-scrollbar">
           <h1 className="text-3xl mb-2 font-bold  leading-normal ml-2">
             Preview content
           </h1>

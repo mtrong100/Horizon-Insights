@@ -45,13 +45,13 @@ const Home = () => {
   const filteredBlogs = blogs.filter((item) => item.id !== firstBlog.id);
 
   return (
-    <main className="page-container py-5">
+    <main className="page-container md:py-5">
       <Banner />
 
       {/* Category */}
-      <section className="py-5">
+      <section className="md:py-5">
         <HeadingTitle>Exlpore Categories</HeadingTitle>
-        <ul className="flex items-center gap-5 mt-3 w-full overflow-x-auto scrollbar-tab pb-3">
+        <ul className="flex items-center gap-2 md:gap-5 mt-3 w-full overflow-x-auto scrollbar-tab pb-3">
           {categories.length > 0 &&
             categories.map((item) => {
               const categorySlug = slugify(item, { lower: true });
@@ -73,7 +73,7 @@ const Home = () => {
           <FeatureBlog data={firstBlog} currentUser={currentUser} />
         )}
 
-        <ul className="mt-8 grid grid-cols-3 gap-x-2 gap-y-5 ">
+        <ul className="mt-8 grid md:grid-cols-2 lg:grid-cols-3 gap-x-2 gap-y-5 ">
           {isLoading &&
             Array(6)
               .fill(0)

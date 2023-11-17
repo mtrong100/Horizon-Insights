@@ -3,7 +3,7 @@ import { Outlet } from "react-router-dom";
 
 const ContentLayout = () => {
   return (
-    <section className="grid grid-cols-[minmax(0,_1fr)_450px] gap-5 p-10 ">
+    <section className="md:grid xl:grid-cols-[minmax(0,_1fr)_450px] gap-5 p-2 md:p-10 ">
       <Outlet />
     </section>
   );

@@ -41,7 +41,7 @@
 
 @layer components {
   .page-container {
-    @apply w-full max-w-[1170px] mx-auto px-5;
+    @apply w-full max-w-[1170px] mx-auto px-2 md:px-5;
   }
   .img-cover {
     @apply w-full h-full object-cover;

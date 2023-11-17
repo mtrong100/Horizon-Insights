@@ -22,9 +22,9 @@ const Dashboard = () => {
   return (
     <section className="flex flex-col">
       {/* Card section */}
-      <section className="grid grid-cols-3 gap-5 mb-5">
+      <section className="grid xl:grid-cols-3 gap-5 mb-5">
         <CardUserInfo currentUser={currentUser} isOpenModal={handleToggle} />
-        <div className="col-span-2 dashboard-background rounded-xl shadow-md"></div>
+        <div className="col-span-2 dashboard-background xl:block hidden rounded-xl shadow-md"></div>
       </section>
 
       <div className="line-seperate"></div>

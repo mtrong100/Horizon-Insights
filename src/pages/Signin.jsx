@@ -56,7 +56,7 @@ const Signin = () => {
   };
 
   return (
-    <section className="flex items-center justify-center h-screen bg-secondaryColor">
+    <section className="flex items-center justify-center h-screen bg-secondaryColor px-3">
       <form
         onSubmit={handleSubmit(onSubmit)}
         className="w-full max-w-lg border border-borderColor p-5 rounded-xl bg-mainBackground"

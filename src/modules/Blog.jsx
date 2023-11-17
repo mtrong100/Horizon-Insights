@@ -20,7 +20,7 @@ const Blog = ({ data, className = "" }) => {
 
   return (
     <article className="flex flex-col">
-      <div className="w-full h-[200px] ">
+      <div className="w-full h-[180px] xl:h-[200px] ">
         <img
           src={data?.thumbnail}
           alt="blog-image"
@@ -42,11 +42,13 @@ const Blog = ({ data, className = "" }) => {
         </div>
         <h1
           onClick={handleClick}
-          className="font-bold text-2xl line-clamp-2 leading-tight hover:underline cursor-pointer"
+          className="font-bold text-xl xl:text-2xl line-clamp-2 leading-tight hover:underline cursor-pointer"
         >
           {data?.title}
         </h1>
-        <p className=" text-sm line-clamp-3">{data?.description}</p>
+        <p className=" text-sm line-clamp-2 xl:line-clamp-3">
+          {data?.description}
+        </p>
 
         {/* Author */}
         <div className="flex items-center  mt-2 justify-between">

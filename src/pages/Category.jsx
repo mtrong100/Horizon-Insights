@@ -53,7 +53,7 @@ const Category = () => {
     <section className="page-container">
       <HeadingTitle>Category: #{slug}</HeadingTitle>
 
-      <ul className="my-5 grid grid-cols-3 gap-x-2 gap-y-5 ">
+      <ul className="md:py-10 py-5 lg:my-5 grid md:grid-cols-2 lg:grid-cols-3 gap-x-2 gap-y-5 ">
         {isLoading &&
           Array(6)
             .fill(0)

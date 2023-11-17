@@ -52,7 +52,7 @@ const Comment = ({ data, setData = () => {} }) => {
       className={`${isDeleting ? "opacity-50" : ""} flex items-center gap-3`}
     >
       <div className="flex items-start gap-1">
-        <div className="w-[45px] h-[45px] flex-shrink-0">
+        <div className="md:w-[45px] md:h-[45px] w-[35px] h-[35px] flex-shrink-0">
           <img
             src={user?.avatar}
             alt="user-avatar"
@@ -65,16 +65,16 @@ const Comment = ({ data, setData = () => {} }) => {
             <h1 className="font-semibold ">{user?.username}</h1>
             <div className="font-bold">.</div>
             {data?.updatedAt ? (
-              <p className="font-medium opacity-60 text-base">
+              <p className="font-medium opacity-60 text-xs md:text-base">
                 Edited {format(data?.updatedAt)}
               </p>
             ) : (
-              <p className="font-medium opacity-60 text-base">
+              <p className="font-medium opacity-60 text-xs md:text-base">
                 {format(data?.createdAt)}
               </p>
             )}
           </div>
-          <p className="font-normal text-lg">{data?.comment}</p>
+          <p className="font-normal md:text-lg">{data?.comment}</p>
         </div>
       </div>
 

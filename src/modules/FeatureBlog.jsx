@@ -10,7 +10,7 @@ const FeatureBlog = ({ data, currentUser }) => {
   const { data: user } = useQuerySnapshot("User", "id", data?.userId);
 
   return (
-    <article className="flex items-start justify-between gap-2 h-[400px] ">
+    <article className="flex items-start flex-col md:flex-row md:justify-between gap-2 md:h-[400px] ">
       <div className="w-full flex-1 h-[400px]">
         <img
           src={data?.thumbnail}
@@ -28,11 +28,13 @@ const FeatureBlog = ({ data, currentUser }) => {
         </div>
         <Link
           to={`/${data?.slug}`}
-          className="font-bold text-4xl leading-tight  hover:underline cursor-pointer line-clamp-2"
+          className="font-bold text-2xl lg:text-4xl leading-tight  hover:underline cursor-pointer line-clamp-2"
         >
           {data?.title}
         </Link>
-        <p>{data?.description}</p>
+        <p className="line-clamp-3 md:line-clamp-5 lg:line-clamp-none">
+          {data?.description}
+        </p>
 
         {/* Author */}
         <section className="flex items-center justify-between">

@@ -5,7 +5,7 @@ const HeadingTitle = ({ className = "", children }) => {
   return (
     <h1
       className={twMerge(
-        "text-4xl font-bold leading-normal capitalize",
+        "text-2xl md:text-4xl font-bold leading-normal capitalize",
         className
       )}
     >

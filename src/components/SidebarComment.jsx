@@ -101,13 +101,11 @@ const SidebarComment = ({ blogId }) => {
     <section
       className={`${
         sidebarOpen ? "translate-x-0 opacity-100" : "translate-x-full opacity-0"
-      } w-[500px] bg-white dark:bg-secondaryColor shadow-lg h-full fixed top-0 right-0 bottom-0 z-[999] transition-all duration-300`}
+      } w-full md:w-[500px] bg-white dark:bg-secondaryColor shadow-lg h-full fixed top-0 right-0 bottom-0 z-[999] transition-all duration-300`}
     >
-      <div className="flex flex-col h-full px-5 ">
+      <div className="flex flex-col h-full p-5 md:px-5 ">
         <div className="flex items-center justify-between">
-          <HeadingTitle className="">
-            Comments ({data?.comments?.length || 0})
-          </HeadingTitle>
+          <HeadingTitle>Comments ({data?.comments?.length || 0})</HeadingTitle>
 
           <span
             onClick={() => {
@@ -120,7 +118,7 @@ const SidebarComment = ({ blogId }) => {
           </span>
         </div>
 
-        <main className="flex-1 mt-3 flex flex-col gap-4 overflow-y-auto px-3 pb-5  custom-scrollbar">
+        <main className="flex-1 mt-5 md:mt-3 flex flex-col gap-4 overflow-y-auto md:px-3 pb-5  custom-scrollbar">
           {pendingCmt &&
             Array(5)
               .fill(0)
@@ -134,7 +132,7 @@ const SidebarComment = ({ blogId }) => {
             ))}
         </main>
 
-        <section className="w-full  py-3 gap-2 ">
+        <section className="w-full  md:py-3 ">
           {isLoading ? (
             <div className="flex items-center gap-2 text-xl justify-center opacity-60 font-semibold animate-bounce">
               <p>

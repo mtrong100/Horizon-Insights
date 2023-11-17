@@ -56,7 +56,7 @@ const Explore = () => {
         </div>
       </div>
 
-      <ul className="grid grid-cols-3 gap-2 my-5">
+      <ul className="grid grid-cols-2 lg:grid-cols-3 gap-2 my-5">
         {isLoading &&
           Array(6)
             .fill(0)

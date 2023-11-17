@@ -20,9 +20,9 @@ const Footer = () => {
         <div className="flex flex-col items-center justify-between md:flex-row ">
           <Link
             to="/"
-            className="text-linear text-3xl font-bold leading-normal"
+            className="text-linear text-3xl font-bold leading-normal mb-3 md:mb-0"
           >
-            Money Blogging
+            Horizon Insights
           </Link>
 
           <div className="flex items-center gap-5">
@@ -37,7 +37,7 @@ const Footer = () => {
           </div>
         </div>
 
-        <div className="flex flex-wrap gap-16 mt-8 text-start md:gap-5">
+        <div className="grid grid-cols-2 md:flex md:flex-wrap gap-16 mt-8 text-start md:gap-5">
           {footerDetails.map(({ title, links, id }) => {
             return (
               <div className="flex flex-col flex-1" key={id}>

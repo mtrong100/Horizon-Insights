@@ -3,12 +3,12 @@ import HeadingTitle from "../components/HeadingTitle";
 
 const Contact = () => {
   return (
-    <section className="page-container">
-      <HeadingTitle className="text-center text-5xl mt-5">
+    <section className="page-container  mt-20 mb-[200px] flex items-center justify-center flex-col">
+      <HeadingTitle className="text-center text-5xl my-5">
         Contact to us
       </HeadingTitle>
 
-      <div className="flex items-center justify-between gap-3">
+      <div className="flex items-center justify-between gap-3 mt-10 lg:mt-0">
         <div className="flex flex-col gap-5 flex-1">
           <input
             type="text"

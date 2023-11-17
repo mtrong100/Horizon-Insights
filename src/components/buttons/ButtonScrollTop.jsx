@@ -32,7 +32,7 @@ const ButtonScrollTop = () => {
 
   return (
     <button
-      className={`rounded-full fixed z-30 bottom-20 lg:bottom-28 xl:bottom-10 right-5 md:bottom-24 md:right-10 shadow-lg text-buttonText  lg:right-10  w-[45px] h-[45px] items-center justify-center bg-buttonColor ${
+      className={`rounded-full fixed z-30 bottom-5 lg:bottom-28 xl:bottom-10 right-5 md:bottom-24 md:right-10 shadow-lg text-buttonText  lg:right-10  w-[45px] h-[45px] items-center justify-center bg-buttonColor ${
         isVisible ? "flex" : "hidden"
       }`}
       onClick={scrollToTop}

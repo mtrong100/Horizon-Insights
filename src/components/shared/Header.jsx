@@ -10,16 +10,16 @@ const Header = () => {
   const location = useLocation();
 
   return (
-    <header className="p-4">
+    <header className="p-2 md:p-4">
       <div className="page-container flex items-center justify-between">
-        <div className="flex items-center gap-5">
+        <div className="flex items-center gap-2 md:gap-5">
           <Link to={"/"} className="text-2xl font-bold text-textColor">
             Horizon Insights
           </Link>
           <ThemeButton />
         </div>
 
-        <ul className="flex items-center gap-5">
+        <ul className="md:flex hidden items-center gap-5">
           {menuLinks.map((item) => {
             const isActive = location.pathname === item.link;
 
@@ -29,7 +29,7 @@ const Header = () => {
                   isActive
                     ? "text-activeColor font-semibold"
                     : " font-medium text-textColor"
-                } text-xl `}
+                }  lg:text-xl `}
                 key={item.name}
                 to={item.link}
               >

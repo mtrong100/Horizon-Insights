@@ -40,7 +40,7 @@ const FollowCard = () => {
   const users = data.filter((item) => item.id !== currentUser?.id);
 
   return (
-    <div className="p-5 rounded-lg bg-secondaryColor">
+    <div className="p-5 rounded-lg bg-secondaryColor mt-5 md:mt-0">
       <h1 className="text-3xl font-bold text-linear leading-normal">
         Recommended Users
       </h1>

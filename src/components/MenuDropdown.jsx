@@ -38,7 +38,9 @@ const MenuDropdown = ({ currentUser }) => {
     <Menu as="div" className="relative">
       <Menu.Button>
         <div className="flex items-center gap-3 cursor-pointer">
-          <h3 className="font-bold text-lg">{currentUser?.username}</h3>
+          <h3 className="font-bold md:block hidden text-lg">
+            {currentUser?.username}
+          </h3>
           <img
             src={currentUser?.avatar}
             alt="user-avatar"
@@ -55,7 +57,7 @@ const MenuDropdown = ({ currentUser }) => {
         leaveFrom="transform opacity-100 scale-100"
         leaveTo="transform opacity-0 scale-95"
       >
-        <Menu.Items className="absolute min-w-[170px] right-0 z-10 top-[45px] xl:w-full origin-bottom  bg-secondaryColor rounded-md shadow-lg  ">
+        <Menu.Items className="absolute lg:block hidden min-w-[170px] right-0 z-10 top-[45px] xl:w-full origin-bottom  bg-secondaryColor rounded-md shadow-lg  ">
           {dropdownLinks.map((link) => (
             <Menu.Item key={link.label} as={Fragment}>
               {({ active }) => (

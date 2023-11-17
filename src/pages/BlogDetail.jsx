@@ -47,14 +47,14 @@ const BlogDetail = () => {
         )}
         {!isLoading && data && (
           <div className="bg-secondaryColor p-5 rounded-xl mt-3">
-            <section className="flex items-center justify-between">
-              <div className="flex items-center gap-5">
+            <section className="flex items-start flex-col md:flex-row md:items-center justify-between gap-5">
+              <div className="flex flex-col md:flex-row items-start md:items-center  md:gap-5">
                 {/* Author */}
                 <div className="flex items-center gap-3 cursor-pointer mb-5">
                   <img
                     src={user?.avatar}
                     alt="user-avatar"
-                    className="object-cover w-[100px] h-[100px] rounded-full"
+                    className="object-cover md:w-[100px] md:h-[100px] w-[60px] h-[60px] rounded-full"
                   />
                   <div>
                     <h3 className="font-bold  text-lg">
@@ -66,7 +66,7 @@ const BlogDetail = () => {
                   </div>
                 </div>
 
-                <div className="flex items-center gap-5 border-l-2 pl-5 border-slate-600">
+                <div className="flex items-center gap-5 md:border-l-2 md:pl-5 border-slate-600">
                   <ButtonLike blogId={data?.id} />
                   <ButtonComment blogId={data?.id} />
                 </div>
@@ -92,7 +92,7 @@ const BlogDetail = () => {
           <h1 className="text-3xl font-bold text-linear leading-normal">
             Explore more
           </h1>
-          <ul className="flex flex-col gap-5 mt-5">
+          <ul className="grid md:grid-cols-2 xl:flex xl:flex-col gap-5 mt-5">
             {blogLoading &&
               Array(6)
                 .fill(0)

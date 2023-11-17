@@ -36,7 +36,7 @@ const BlogItem = ({ data }) => {
   };
 
   return (
-    <article className="flex items-center justify-between">
+    <article className="flex items-center justify-between gap-10">
       <div className="flex items-start gap-3">
         <div className="w-[200px] h-[150px]">
           <img
@@ -52,7 +52,7 @@ const BlogItem = ({ data }) => {
             </span>
             <BlogType category={data?.type} />
           </div>
-          <h1 className="text-xl font-semibold ">{data?.title}</h1>
+          <h1 className="xl:text-xl font-semibold ">{data?.title}</h1>
           <span className="font-semibold opacity-80">By: {user?.username}</span>
           <span className="font-medium">{formateDate(data?.createdAt)}</span>
         </div>
