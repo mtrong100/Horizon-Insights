@@ -8,6 +8,8 @@
 - Authentication with email and password
 - CRUD blog, comment, user
 - Like/unlike blog, follow/unfollow user
+- Toggle darkmode and light mode
+- Dashboard for manage blogs
 
 # Preview
 - [Click here](https://blog-app-horizon.vercel.app/)
