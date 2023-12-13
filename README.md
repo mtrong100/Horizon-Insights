@@ -1,15 +1,15 @@
 # Horizon Insights
-- Blog app project
+- Blog website project
 
-#Tech using
+# Tech using
 - React, Tailwind CSS, Firebase
 
-#Features
+# Features
 - Authentication with email and password
-- Add, edit, delete blog
-- Add, edit, delete comment
+- CRUD blog, comment, user
 - Like/unlike blog, follow/unfollow user
 
+# Preview
+- [Click here](https://blog-app-horizon.vercel.app/)
 
-[Preview](https://blog-app-horizon.vercel.app/)
 ![image](https://github.com/mtrong100/blog-app/assets/94778246/029aac9e-36cf-47c3-8b9c-22799ce6b311)
